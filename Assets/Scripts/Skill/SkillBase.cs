@@ -1,43 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[System.Serializable]
-public struct SkillInfo
+
+public abstract class SkillBase
 {
-    public int skillId;
-    public float cooldownTime;
-    public float currentCooldown;
-}
+    protected SkillData skillData;
+    protected float currentCooldown;
 
-public abstract class SkillBase : MonoBehaviour
-{
-    protected SkillInfo skillInfo; // 스킬 정보 저장
+    private Image coolDownImage;
 
-    protected virtual void Start()
+    public SkillBase(SkillData data, Image image)
     {
-        InitSkill();
+        skillData = data;
+        currentCooldown = 0;
+
+        coolDownImage = image;
     }
 
-    private void Update()
+    public void UpdateCooldown(float deltaTime)
     {
-        UpdateCooldown();
-    }
-
-    protected abstract void InitSkill();
-
-    protected virtual void UpdateCooldown()
-    {
-        if(skillInfo.currentCooldown > 0)
+        if (currentCooldown > 0)
         {
-            skillInfo.currentCooldown -= Time.deltaTime;
+            currentCooldown -= deltaTime;
         }
+
+        coolDownImage.fillAmount = currentCooldown / skillData.cooldown;
     }
 
-    public abstract void UseSkill();
-
-    protected bool CanUseSkill()
+    private bool CanUseSkill()
     {
-        return skillInfo.currentCooldown <= 0;
+        return currentCooldown <= 0;
     }
+
+    public void UseSkill()
+    {
+        if (!CanUseSkill())
+        {
+            Debug.Log($"{skillData.skillName} 스킬이 아직 쿨다운 중");
+            return;
+        }
+
+        ExecuteSkill();
+        currentCooldown = skillData.cooldown;
+    }
+
+    protected abstract void ExecuteSkill(); // 스킬 실행 로직은 개별 스킬에서 구현
+
 }

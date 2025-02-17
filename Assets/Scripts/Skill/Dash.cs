@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dash : SkillBase
 {
-    protected override void InitSkill()
+    private PlayerController player;
+    private float dashTime = 0.15f;  // 대시 지속 시간
+
+    public Dash(SkillData data, Image image) : base(data, image)
     {
-        skillInfo = new SkillInfo { skillId = 0, cooldownTime = 5f, currentCooldown = 0 };
+        player = GameManager.Instance.player.GetComponent<PlayerController>();
     }
 
-    public override void UseSkill()
+    protected override void ExecuteSkill()
     {
-        if (!CanUseSkill()) return;
+        Vector3 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        dir = dir - player.transform.position;
 
-        Debug.Log("use dash");
-
-        skillInfo.currentCooldown = skillInfo.cooldownTime;
+        player.StartCoroutine(player.Dash(dir, 3f, dashTime)); // 대시 속도 15
     }
-
 }

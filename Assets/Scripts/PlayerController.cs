@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,16 +10,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDir = Vector2.zero;
     [SerializeField] float speed = 10f;
 
+    private bool isDashing = false; // 대시 상태 변수
+
     void Start()
     {
         InitSetting();
-    }
-
-
-
-    void Update()
-    { 
-
     }
 
     private void FixedUpdate()
@@ -26,16 +22,30 @@ public class PlayerController : MonoBehaviour
         MoveMent();
     }
 
+
     void InitSetting()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
+
+        SkillManager.Instance.AddSkill(Key.Space, "Dash");
+        SkillManager.Instance.AddSkill(Key.R, "Ride");
     }
 
     void MoveMent()
     {
-        myRigidbody2D.velocity = moveDir * speed;
+        if (!isDashing) // 대시 중이 아닐 때만 이동 처리
+        {
+            myRigidbody2D.velocity = moveDir * speed;
+        }
+    }
+    public IEnumerator Dash(Vector2 dashDir, float dashSpeed, float dashTime)
+    {
+        isDashing = true;
+        myRigidbody2D.velocity = dashDir * dashSpeed;
 
+        yield return new WaitForSeconds(dashTime); // 대시 지속 시간
 
+        isDashing = false;
     }
 
     #region InputSystem
@@ -57,20 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             Key pressedKey = GetPressedKey();
 
-            switch (pressedKey)
-            {
-                case Key.Space:
-                    Debug.Log("Confirm Space");
-                    break;
-
-                case Key.R:
-                    Debug.Log("Confirm R");
-                    break;
-
-                default:
-                    Debug.Log("Unhandled Key");
-                    break;
-            }
+            SkillManager.Instance.UseSkill(pressedKey);
         }
     } 
     
