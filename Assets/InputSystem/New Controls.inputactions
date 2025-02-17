@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "3f6937e4-cca7-48f9-be8c-a89076cd2332",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Interaction",
                     "type": "Value",
                     "id": "5f4615ce-e317-4968-ad44-21283d646707",
@@ -43,17 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "4f1bdaee-eeb3-46e3-8420-7ee139ca48d7",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "6532bcc1-40ac-46e7-97b2-9254ac42ef35",

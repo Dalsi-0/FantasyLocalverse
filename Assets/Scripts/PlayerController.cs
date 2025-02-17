@@ -5,14 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
     private Rigidbody2D myRigidbody2D;
     private Vector2 moveDir = Vector2.zero;
     [SerializeField] float speed = 10f;
 
     void Start()
     {
-        myRigidbody2D = GetComponent<Rigidbody2D>();
+        InitSetting();
     }
 
 
@@ -29,6 +28,11 @@ public class PlayerController : MonoBehaviour
         MoveMent();
     }
 
+    void InitSetting()
+    {
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
     void MoveMent()
     {
 
@@ -41,10 +45,6 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue inputValue)
     {
         moveDir = inputValue.Get<Vector2>().normalized;
-    }
-    void OnLook(InputValue inputValue)
-    {
-
     }
     void OnInteraction(InputValue inputValue)
     {
