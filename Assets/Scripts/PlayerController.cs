@@ -17,10 +17,8 @@ public class PlayerController : MonoBehaviour
 
 
     void Update()
-    {
-        Vector3 pos = transform.position;
-        pos.z = pos.y * 0.01f; // Y값이 높을수록 더 뒤에 배치
-        transform.position = pos;
+    { 
+
     }
 
     private void FixedUpdate()
@@ -35,7 +33,6 @@ public class PlayerController : MonoBehaviour
 
     void MoveMent()
     {
-
         myRigidbody2D.velocity = moveDir * speed;
 
 
