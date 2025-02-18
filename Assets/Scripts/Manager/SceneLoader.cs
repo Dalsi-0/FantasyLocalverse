@@ -20,14 +20,15 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Slider progressBar;
     [SerializeField] private TMP_Text tmiText;
-    [SerializeField] private Button startButton;
+    [SerializeField] private GameObject completeText;
+    [SerializeField] private Animator completeTextAnim;
 
     private string[] tmiMessages = {
-        "와! 자고 싶다.",
-        "와! 배고프다.",
-        "이번 팀 프로젝트는 어떨까?",
-        "난 이 게임을 만들었어요!",
-        "전 게임을 좋아합니다."
+        "TMI : 와! 자고 싶다.",
+        "TMI : 와! 배고프다.",
+        "TMI : 이번 팀 프로젝트는 어떨까?",
+        "TMI : 난 이 게임을 만들었어요!",
+        "TMI : 전 게임을 좋아합니다."
     };
 
     private void Awake()
@@ -50,9 +51,9 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(ESceneType sceneType)
     {
+        completeText.SetActive(false);
         loadingScreen.SetActive(true);
         progressBar.value = 0;
-        startButton.gameObject.SetActive(false);
         tmiText.text = tmiMessages[Random.Range(0, tmiMessages.Length)];
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneType.ToString());
@@ -64,12 +65,16 @@ public class SceneLoader : MonoBehaviour
 
             if (operation.progress >= 0.9f)
             {
-                startButton.gameObject.SetActive(true);
-                startButton.onClick.RemoveAllListeners();
-                startButton.onClick.AddListener(() => operation.allowSceneActivation = true);
-                yield break;
-            }
+                completeText.SetActive(true);
+                completeTextAnim.Play("CompleteLoadSceneText");
+                while (!Input.anyKeyDown)
+                {
+                    yield return null;
+                }
+                operation.allowSceneActivation = true;
 
+                loadingScreen.SetActive(false);
+            }
             yield return null;
         }
     }

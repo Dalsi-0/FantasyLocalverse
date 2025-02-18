@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Localverse.unity
+    path: Assets/Scenes/Village.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/MiniGameBrid.unity
+    guid: 8708c2af4ea26494e8cdf08ba36fc7b1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9787f881e4061454eaad33fac5c8e139, type: 2}
