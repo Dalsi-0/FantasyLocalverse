@@ -19,7 +19,7 @@ public class Brid_UIManager : MonoBehaviour
     public void SetPlayingGameScoreText(int score)
     {
         playingGameScore.text = score.ToString();
-    } 
+    }
 
     public void SetActive_pressAnyKeyUI(bool active)
     {
@@ -38,6 +38,9 @@ public class Brid_UIManager : MonoBehaviour
     {
         resultBestScore.text = _bestScore.ToString();
         resultGameScore.text = _gameScore.ToString();
+
+        PlayerPrefs.SetInt("BestScore", _bestScore);
+        PlayerPrefs.Save();
     }
 
     public void ReturnToVillageButton()

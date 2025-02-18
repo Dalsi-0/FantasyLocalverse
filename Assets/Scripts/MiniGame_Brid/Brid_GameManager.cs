@@ -81,7 +81,14 @@ public class Brid_GameManager : MonoBehaviour
         brid_UIManager.SetActive_pressAnyKeyUI(false);
         brid_UIManager.SetActive_playingUI(false);
         brid_UIManager.SetActive_resultUI(true);
-        brid_UIManager.SetResultValue(0, gameScore);
+
+        int highScore = PlayerPrefs.GetInt("BestScore", 0);
+        if(highScore < gameScore)
+        {
+            highScore = gameScore;
+        }
+
+        brid_UIManager.SetResultValue(highScore, gameScore);
     }
 
     public void PlusScore()
