@@ -20,7 +20,7 @@ public class InteractableBase : MonoBehaviour, IInteractable
 
         if (!isActive)
         {
-            Camera.main.orthographicSize = 3;
+            Camera.main.orthographicSize = 2.5f;
         }
     }
 

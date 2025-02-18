@@ -11,7 +11,7 @@ public class QuestNPC : InteractableBase
         StartCoroutine(UnlockInputAfterDelay());
 
         dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_merchant");
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData);
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera);
     }
 
     private IEnumerator UnlockInputAfterDelay()

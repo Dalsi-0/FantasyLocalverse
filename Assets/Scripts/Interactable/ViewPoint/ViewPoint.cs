@@ -12,22 +12,23 @@ public class ViewPoint : InteractableBase
 
     private void Start()
     {
+        SetVirtualCameraActive(false);
         if (playableDirector != null)
         {
-            playableDirector.gameObject.SetActive(false);
             playableDirector.stopped += OnTimelineEnd;  
         }
         else { Debug.LogWarning("playableDirector is null!!"); }
 
         dialogueData = DialogueManager.Instance.repository.GetDialogue("Object_viewPoint");
 
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, null, PlayViewPointTimeline);
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, PlayViewPointTimeline);
     }
         
     private void PlayViewPointTimeline()
     {
         GameManager.Instance.player.transform.GetComponent<PlayerController>().SetMoveLock(true);
-        playableDirector.gameObject.SetActive(true);
+
+        SetVirtualCameraActive(true);
         playableDirector.Play();
     }
 
@@ -37,7 +38,7 @@ public class ViewPoint : InteractableBase
         Debug.Log("타임라인 종료");
 
         playableDirector.Stop();
-        playableDirector.gameObject.SetActive(false);
+        SetVirtualCameraActive(false);
         GameManager.Instance.player.transform.GetComponent<PlayerController>().SetMoveLock(false);
     }
 }
