@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class UIManager : MonoBehaviour
 
     public Transform hudUISkill;
 
-    [SerializeField] Transform latterBox;
     [SerializeField] Animator latterBoxAnimator;
+    [SerializeField] Animator FadeAnimator;
 
     private void Awake()
     {
@@ -26,14 +27,38 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void PlayLetterboxAnimation()
+    private void Start()
     {
-        latterBox.gameObject.SetActive(true);
-        latterBoxAnimator.Play("ShowLatterBox");
+        Init();
     }
 
-    public void DisableLatterBox()
+    void Init()
     {
-        latterBox.gameObject.SetActive(false);
+        latterBoxAnimator.enabled = false;
+        FadeAnimator.enabled = false;
     }
+
+
+
+    public void ActiveOrDisableLetterbox(bool isActive)
+    {
+        latterBoxAnimator.enabled = true;
+        if (isActive)
+        {
+            latterBoxAnimator.SetBool("isActive", true);
+
+            return;
+        }
+        latterBoxAnimator.SetBool("isActive", false);
+    }
+
+    public void FadeAnimation()
+    {
+        FadeAnimator.enabled = true;
+        FadeAnimator.Play("FadeIn");
+    }
+
+
+
+
 }

@@ -51,6 +51,8 @@ public class DialogueManager : MonoBehaviour
 
         onDialogueEnd = onEndAction;
         dialoguePanel.SetActive(true);
+        UIManager.Instance.FadeAnimation();
+        UIManager.Instance.ActiveOrDisableLetterbox(true);
 
         inputLock = true; // 입력을 잠시 차단
         StartCoroutine(UnlockInputAfterDelay()); // 0.1초 후 입력 허용
@@ -122,6 +124,8 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
+        UIManager.Instance.ActiveOrDisableLetterbox(false);
+        UIManager.Instance.FadeAnimation();
         dialogueText.text = "";
         speakerText.text = "";
         GameManager.Instance.player.transform.GetComponent<PlayerController>().SetMoveLock(false);

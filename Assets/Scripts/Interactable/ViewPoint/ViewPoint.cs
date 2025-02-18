@@ -15,7 +15,7 @@ public class ViewPoint : InteractableBase
         if (playableDirector != null)
         {
             playableDirector.gameObject.SetActive(false);
-            playableDirector.stopped += OnTimelineEnd;
+            playableDirector.stopped += OnTimelineEnd;  
         }
         else { Debug.LogWarning("playableDirector is null!!"); }
 

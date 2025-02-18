@@ -6686,7 +6686,7 @@ GameObject:
   - component: {fileID: 864096680}
   - component: {fileID: 864096679}
   m_Layer: 5
-  m_Name: ViewPointFadeIn
+  m_Name: FadeIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6702,7 +6702,7 @@ Animator:
   m_GameObject: {fileID: 864096678}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19fa9721f3da10247804128d23bb6e1e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13408,8 +13408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudUISkill: {fileID: 1371257481}
-  latterBox: {fileID: 1093752629}
   latterBoxAnimator: {fileID: 1093752630}
+  FadeAnimator: {fileID: 864096679}
 --- !u!4 &1573975466
 Transform:
   m_ObjectHideFlags: 0
