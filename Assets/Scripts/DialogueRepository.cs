@@ -31,9 +31,10 @@ public class DialogueRepository : MonoBehaviour
             new DialogueData("안내", "마을 전경이 한 눈에 들어온다."),
         });
 
-        dialogues.Add("MiniGame_Block", new DialogueData[]
+        dialogues.Add("MiniGame_Brid", new DialogueData[]
         {
             new DialogueData("안내", "마을 꼬마들이 가지고 노는 장남감 블럭들이다."),
+            new DialogueData("안내", "높게 쌓아올려진 블럭들 사이로 작은 새가 날아다닌다."),
         });
 
         dialogues.Add("NPC_merchant", new DialogueData[]
@@ -42,7 +43,7 @@ public class DialogueRepository : MonoBehaviour
             new DialogueData("Player", "보기보다 비싸다."),
         });
 
-        dialogues.Add("NPC_merchant", new DialogueData[]
+        dialogues.Add("NPC_quest", new DialogueData[]
         {
             new DialogueData("불쌍한 주민", "거기, 나 좀 도와주오.."),
             new DialogueData("Player", "무슨 일이신가요?"),
