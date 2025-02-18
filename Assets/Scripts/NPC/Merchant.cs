@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Merchant : InteractableBase
 {
-    [SerializeField] private DialogueData[] dialogueData;
+    private DialogueData[] dialogueData;
 
     private void Start()
     {
+        SetVirtualCameraActive(false);
         StartCoroutine(UnlockInputAfterDelay());
 
-
         dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_merchant");
-
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData);
     }
 

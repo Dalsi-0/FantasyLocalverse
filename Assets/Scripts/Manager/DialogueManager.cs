@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
     /// <summary>
     /// 대화 시작 
     /// </summary>
-    public void StartDialogue(DialogueData[] dialogues, Action onEndAction = null)
+    public void StartDialogue(DialogueData[] dialogues, GameObject virtualCamera = null, Action onEndAction = null)
     {
         GameManager.Instance.player.transform.GetComponent<PlayerController>().SetMoveLock(true);
         dialogueQueue.Clear();
@@ -50,7 +50,13 @@ public class DialogueManager : MonoBehaviour
         }
 
         onDialogueEnd = onEndAction;
-        dialoguePanel.SetActive(true);
+        dialoguePanel.SetActive(true); 
+        
+        if (virtualCamera != null)
+        {
+            virtualCamera.SetActive(true);
+        }
+
         UIManager.Instance.FadeAnimation();
         UIManager.Instance.ActiveOrDisableLetterbox(true);
 

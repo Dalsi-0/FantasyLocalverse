@@ -1,17 +1,17 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Church : InteractableBase
 {
-    [SerializeField] private DialogueData[] dialogueData;
+    private DialogueData[] dialogueData;
 
     private void Start()
     {
+        SetVirtualCameraActive(false);
         dialogueData = DialogueManager.Instance.repository.GetDialogue("Object_church");
-
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData);
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
-
 
 }

@@ -37,6 +37,13 @@ public class DialogueRepository : MonoBehaviour
             new DialogueData("Player", "보기보다 비싸다."),
         });
 
+        dialogues.Add("NPC_merchant", new DialogueData[]
+        {
+            new DialogueData("불쌍한 주민", "거기, 나 좀 도와주오.."),
+            new DialogueData("Player", "무슨 일이신가요?"),
+            new DialogueData("불쌍한 주민", "잃어버린 내 물건 좀 찾아줘..\n보상은 섭섭하지 않게 챙겨주지"),
+        });
+
         dialogues.Add("EVENT_QUEST_COMPLETE", new DialogueData[]
         {
             new DialogueData("System", "축하합니다! 퀘스트를 완료하셨습니다!"),

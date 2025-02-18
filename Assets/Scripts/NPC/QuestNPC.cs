@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestNPC : MonoBehaviour, IInteractable
+public class QuestNPC : InteractableBase
 {
-    private bool isFirstTime;
+    private DialogueData[] dialogueData;
 
     private void Start()
     {
         StartCoroutine(UnlockInputAfterDelay());
-    }
 
-    public void Interact()
-    {
-        isFirstTime = true;
+        dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_merchant");
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData);
     }
-
 
     private IEnumerator UnlockInputAfterDelay()
     {
@@ -26,14 +23,6 @@ public class QuestNPC : MonoBehaviour, IInteractable
             yield return new WaitForSeconds(delay);
             BubbleManager.Instance.ShowBubble(gameObject, "아이고..\n내 물건이 어디갔나..?");
             yield return new WaitForSeconds(5f);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!isFirstTime && collision.CompareTag("Player"))
-        {
-            Interact();
         }
     }
 }

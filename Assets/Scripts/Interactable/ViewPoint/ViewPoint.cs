@@ -8,7 +8,7 @@ public class ViewPoint : InteractableBase
 {
     [SerializeField] private PlayableDirector playableDirector;
 
-    [SerializeField] private DialogueData[] dialogueData;
+    private DialogueData[] dialogueData;
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class ViewPoint : InteractableBase
 
         dialogueData = DialogueManager.Instance.repository.GetDialogue("Object_viewPoint");
 
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, PlayViewPointTimeline);
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, null, PlayViewPointTimeline);
     }
         
     private void PlayViewPointTimeline()
