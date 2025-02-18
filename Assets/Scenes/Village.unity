@@ -11535,6 +11535,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1249572159930434851, guid: cc41b5baf4537b3449e9f87458fddceb, type: 3}
+      propertyPath: myAnimator
+      value: 
+      objectReference: {fileID: 1755351208}
     - target: {fileID: 8095194094892133870, guid: cc41b5baf4537b3449e9f87458fddceb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.83
@@ -21407,6 +21411,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1755351208 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2115058833913026937, guid: cc41b5baf4537b3449e9f87458fddceb, type: 3}
+  m_PrefabInstance: {fileID: 914091754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1765262215
 GameObject:
   m_ObjectHideFlags: 0

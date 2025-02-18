@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isDashing = false; // 대시 상태 변수
     private bool moveLock = false; // 움직임 불가 상태
+    private bool isMoving = false;
+    private bool prevIsMoving = false; // 이전 이동 상태 저장
 
+    [SerializeField] Animator myAnimator;
     private InteractableBase currentInteractable; // 현재 상호작용 가능한 오브젝트 저장
 
     void Start()
@@ -23,6 +26,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        isMoving = myRigidbody2D.velocity.sqrMagnitude > 0.01f;
+        if (isMoving != prevIsMoving)
+        {
+            myAnimator.SetBool("1_Move", isMoving);
+            prevIsMoving = isMoving; // 이전 상태 업데이트
+        }
         MoveMent();
     }
 
