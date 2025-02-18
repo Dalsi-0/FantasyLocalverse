@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class UIManager : MonoBehaviour
 
     public Transform hudUISkill;
 
+    [SerializeField] Transform latterBox;
+    [SerializeField] Animator latterBoxAnimator;
 
     private void Awake()
     {
@@ -21,5 +24,16 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void PlayLetterboxAnimation()
+    {
+        latterBox.gameObject.SetActive(true);
+        latterBoxAnimator.Play("ShowLatterBox");
+    }
+
+    public void DisableLatterBox()
+    {
+        latterBox.gameObject.SetActive(false);
     }
 }

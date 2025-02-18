@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
-    public static BubbleManager Instance { get; private set; } // 싱글톤 인스턴스
+    public static BubbleManager Instance { get; private set; }
 
     private Dictionary<GameObject, BubbleAutoResizer> bubbleDictionary = new Dictionary<GameObject, BubbleAutoResizer>();
 
@@ -39,20 +39,18 @@ public class BubbleManager : MonoBehaviour
     {
         if (bubbleDictionary.TryGetValue(obj, out BubbleAutoResizer bubble))
         {
-            bubble.SetBubble(message);
-            StartCoroutine(HideBubbleAfterDelay(obj, duration));
+            StartCoroutine(ShowAndHideBubble(bubble, message, duration));
         }
     }
 
     /// <summary>
     /// 일정 시간이 지난 후 말풍선을 숨김
     /// </summary>
-    private IEnumerator HideBubbleAfterDelay(GameObject obj, float delay)
+    private IEnumerator ShowAndHideBubble(BubbleAutoResizer bubble, string message, float duration)
     {
-        yield return new WaitForSeconds(delay);
-        if (bubbleDictionary.TryGetValue(obj, out BubbleAutoResizer bubble))
-        {
-            bubble.gameObject.SetActive(false);
-        }
+        bubble.SetBubble(message);
+        yield return bubble.StartCoroutine(bubble.TypingRoutine()); // 타이핑 효과가 끝날 때까지 대기
+        yield return new WaitForSeconds(duration); // 추가로 2초 대기
+        bubble.HideBubble(); // 말풍선 숨기기
     }
 }

@@ -17,7 +17,6 @@ public class BubbleAutoResizer : MonoBehaviour
 
     private RectTransform textRect;
     private RectTransform bubbleRect;
-    private BubbleAutoResizer bubble;
 
     private string originText;
 
@@ -25,7 +24,6 @@ public class BubbleAutoResizer : MonoBehaviour
     {
         textRect = bubbleText.GetComponent<RectTransform>();
         bubbleRect = bubbleImage.GetComponent<RectTransform>();
-        bubble = GetComponent<BubbleAutoResizer>();
 
         bubbleImage.gameObject.SetActive(false);
         bubbleText.gameObject.SetActive(false);
@@ -40,7 +38,14 @@ public class BubbleAutoResizer : MonoBehaviour
     {
         bubbleImage.gameObject.SetActive(true);
         bubbleText.gameObject.SetActive(true);
-        bubble.SetText(message);
+        SetText(message);
+    }
+
+    public void HideBubble()
+    {
+        bubbleText.text = "";
+        bubbleImage.gameObject.SetActive(false);
+        bubbleText.gameObject.SetActive(false);
     }
 
 
@@ -75,14 +80,14 @@ public class BubbleAutoResizer : MonoBehaviour
     /// 한글 타이핑 효과 코루틴
     /// </summary>
     /// <returns></returns>
-    IEnumerator TypingRoutine()
+    public IEnumerator TypingRoutine()
     {
         int typingLength = originText.GetTypingLength();
 
         for (int i = 0; i <= typingLength; i++)
         {
             bubbleText.text = originText.Typing(i);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.04f);
         }
     }
 

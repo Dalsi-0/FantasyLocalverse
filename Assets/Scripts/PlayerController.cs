@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 10f;
 
     private bool isDashing = false; // 대시 상태 변수
+    private bool moveLock = false; // 움직임 불가 상태
+
+    private InteractableBase currentInteractable; // 현재 상호작용 가능한 오브젝트 저장
 
     void Start()
     {
@@ -33,10 +36,12 @@ public class PlayerController : MonoBehaviour
 
     void MoveMent()
     {
-        if (!isDashing) // 대시 중이 아닐 때만 이동 처리
-        {
-            myRigidbody2D.velocity = moveDir * speed;
-        }
+        if (moveLock) return; // 움직임이 잠긴 상태라면 아무것도 안 함
+
+        if (isDashing) return; // 대시 중에는 이동 방향 변경 X
+        
+
+        myRigidbody2D.velocity = moveDir * speed;
     }
     public IEnumerator Dash(Vector2 dashDir, float dashSpeed, float dashTime)
     {
@@ -48,6 +53,24 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
     }
 
+
+    public void SetInteractable(InteractableBase interactable)
+    {
+        currentInteractable = interactable;
+    }
+    public void ClearInteractable()
+    {
+        currentInteractable = null;
+    }
+    public void SetMoveLock(bool state)
+    {
+        moveLock = state;
+        if (state)
+        {
+            myRigidbody2D.velocity = Vector2.zero;
+        }
+    }
+
     #region InputSystem
     void OnMove(InputValue inputValue)
     {
@@ -55,7 +78,10 @@ public class PlayerController : MonoBehaviour
     }
     void OnInteraction(InputValue inputValue)
     {
-        Debug.Log("fff");
+        if (currentInteractable != null)
+        {
+            currentInteractable.Interact();
+        }
     }
     void OnSkill(InputValue inputValue)
     {
