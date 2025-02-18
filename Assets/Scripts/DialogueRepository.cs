@@ -31,6 +31,11 @@ public class DialogueRepository : MonoBehaviour
             new DialogueData("안내", "마을 전경이 한 눈에 들어온다."),
         });
 
+        dialogues.Add("MiniGame_Block", new DialogueData[]
+        {
+            new DialogueData("안내", "마을 꼬마들이 가지고 노는 장남감 블럭들이다."),
+        });
+
         dialogues.Add("NPC_merchant", new DialogueData[]
         {
             new DialogueData("상점 주인", "어서오세요. 맛있는 과일 많습니다."),
