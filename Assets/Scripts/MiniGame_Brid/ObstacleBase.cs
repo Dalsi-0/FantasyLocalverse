@@ -21,8 +21,8 @@ public class ObstacleBase : MonoBehaviour
         {
             highObstacle = transform.GetChild(0);
             underObstacle = transform.GetChild(1);
+            SetVerticalWidth();
         }
-        SetVerticalWidth();
     }
 
     private void Update()
