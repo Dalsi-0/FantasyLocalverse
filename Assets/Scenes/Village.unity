@@ -21517,7 +21517,7 @@ MonoBehaviour:
   progressBar: {fileID: 1729498126}
   tmiText: {fileID: 545042460}
   completeText: {fileID: 2043398572}
-  completeTextAnim: {fileID: 0}
+  completeTextAnim: {fileID: 2043398574}
 --- !u!4 &1855571201
 Transform:
   m_ObjectHideFlags: 0
