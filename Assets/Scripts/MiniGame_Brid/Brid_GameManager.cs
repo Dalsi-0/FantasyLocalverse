@@ -82,6 +82,7 @@ public class Brid_GameManager : MonoBehaviour
         brid_UIManager.SetActive_playingUI(false);
         brid_UIManager.SetActive_resultUI(true);
 
+        bridController.gameObject.SetActive(false);
         int highScore = PlayerPrefs.GetInt("BestScore", 0);
         if(highScore < gameScore)
         {
@@ -97,4 +98,8 @@ public class Brid_GameManager : MonoBehaviour
         brid_UIManager.SetPlayingGameScoreText(gameScore);
     }
 
+    public EGameState GetGameState()
+    {
+        return gameState;
+    }
 }

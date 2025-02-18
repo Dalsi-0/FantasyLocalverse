@@ -19,7 +19,6 @@ public class UIManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -35,7 +34,7 @@ public class UIManager : MonoBehaviour
     void Init()
     {
         latterBoxAnimator.enabled = false;
-        FadeAnimator.enabled = false;
+        FadeAnimation();
     }
 
 

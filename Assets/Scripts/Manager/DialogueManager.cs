@@ -29,7 +29,6 @@ public class DialogueManager : MonoBehaviour
             Instance = this;
             dialogueQueue = new Queue<DialogueData>();
             dialoguePanel.SetActive(false);
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

@@ -17,6 +17,7 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance { get; private set; }
 
+    [SerializeField] private GameObject[] managers;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Slider progressBar;
     [SerializeField] private TMP_Text tmiText;
@@ -90,6 +91,11 @@ public class SceneLoader : MonoBehaviour
 
                 operation.allowSceneActivation = true;
 
+                loadingScreen.SetActive(false);
+
+                // 씬이 완전히 로드된 다음 프레임에 RestorePlayerPosition 실행
+                yield return new WaitForSeconds(0.1f);
+
                 if (sceneType == ESceneType.Village)
                 {
                     RestorePlayerPosition();
@@ -101,11 +107,21 @@ public class SceneLoader : MonoBehaviour
     }
     private void SavePlayerPosition()
     {
+        SetManagersActive(false);
         originPlayerPosition = GameManager.Instance.player.transform.position;
     }
 
     private void RestorePlayerPosition()
     {
+        SetManagersActive(true);
         GameManager.Instance.player.transform.position = originPlayerPosition;
+    }
+
+    private void SetManagersActive(bool state)
+    {
+        for (int i = 0; i < managers.Length; i++)
+        {
+          //  managers[i].SetActive(state);
+        }
     }
 }

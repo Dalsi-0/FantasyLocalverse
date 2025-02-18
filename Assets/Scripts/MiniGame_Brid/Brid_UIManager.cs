@@ -45,6 +45,7 @@ public class Brid_UIManager : MonoBehaviour
 
     public void ReturnToVillageButton()
     {
+        SceneLoader.Instance.LoadScene(ESceneType.Village);
         Time.timeScale = 1;
     }
 }
