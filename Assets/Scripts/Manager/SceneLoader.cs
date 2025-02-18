@@ -114,6 +114,7 @@ public class SceneLoader : MonoBehaviour
     private void RestorePlayerPosition()
     {
         SetManagersActive(true);
+        Camera.main.transform.position = originPlayerPosition;
         GameManager.Instance.player.transform.position = originPlayerPosition;
     }
 
