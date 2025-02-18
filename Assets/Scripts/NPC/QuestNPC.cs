@@ -11,7 +11,7 @@ public class QuestNPC : InteractableBase
         StartCoroutine(UnlockInputAfterDelay());
 
         SetVirtualCameraActive(false);
-        dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_merchant");
+        dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_quest");
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
 

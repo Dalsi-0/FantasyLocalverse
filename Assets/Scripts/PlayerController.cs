@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D myRigidbody2D;
     private Vector2 moveDir = Vector2.zero;
+    private float lastDirection = 0f; // 마지막 이동 방향 저장
     [SerializeField] float speed = 10f;
 
     private bool isDashing = false; // 대시 상태 변수
@@ -37,11 +38,17 @@ public class PlayerController : MonoBehaviour
     void MoveMent()
     {
         if (moveLock) return; // 움직임이 잠긴 상태라면 아무것도 안 함
-
         if (isDashing) return; // 대시 중에는 이동 방향 변경 X
         
-
         myRigidbody2D.velocity = moveDir * speed;
+
+        // 이동 방향이 변경될 때만 lastDirection 업데이트
+        if (moveDir.x != 0)
+        {
+            lastDirection = moveDir.x;
+        }
+
+        transform.rotation = Quaternion.Euler(0f, lastDirection > 0 ? 180f : 0f, 0f);
     }
     public IEnumerator Dash(Vector2 dashDir, float dashSpeed, float dashTime)
     {
