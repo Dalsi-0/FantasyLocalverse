@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Guard
+  - Obstacle
+  - ResetCollider
+  - Goal
   layers:
   - Default
   - TransparentFX
