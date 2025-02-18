@@ -31,6 +31,12 @@ public class DialogueRepository : MonoBehaviour
             new DialogueData("안내", "마을 전경이 한 눈에 들어온다."),
         });
 
+        dialogues.Add("NPC_merchant", new DialogueData[]
+        {
+            new DialogueData("상점 주인", "어서오세요. 맛있는 과일 많습니다."),
+            new DialogueData("Player", "보기보다 비싸다."),
+        });
+
         dialogues.Add("EVENT_QUEST_COMPLETE", new DialogueData[]
         {
             new DialogueData("System", "축하합니다! 퀘스트를 완료하셨습니다!"),

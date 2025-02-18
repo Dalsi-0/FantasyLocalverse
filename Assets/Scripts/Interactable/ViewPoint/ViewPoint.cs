@@ -6,21 +6,24 @@ using UnityEngine.Playables;
 
 public class ViewPoint : InteractableBase
 {
-    private PlayableDirector playableDirector;
- 
+    [SerializeField] private PlayableDirector playableDirector;
+
+    [SerializeField] private DialogueData[] dialogueData;
+
     private void Start()
     {
-        playableDirector = transform.GetChild(0).GetComponent<PlayableDirector>();
-
         if (playableDirector != null)
         {
             playableDirector.gameObject.SetActive(false);
             playableDirector.stopped += OnTimelineEnd;
         }
+        else { Debug.LogWarning("playableDirector is null!!"); }
 
-        onInteract = () => PlayViewPointTimeline();
+        dialogueData = DialogueManager.Instance.repository.GetDialogue("Object_viewPoint");
+
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, PlayViewPointTimeline);
     }
-
+        
     private void PlayViewPointTimeline()
     {
         GameManager.Instance.player.transform.GetComponent<PlayerController>().SetMoveLock(true);

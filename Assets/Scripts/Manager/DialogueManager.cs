@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     public DialogueRepository repository;
 
     private Queue<DialogueData> dialogueQueue; // 대사 저장
+    private bool inputLock = false; // 키 입력을 막는 변수
     private bool isTyping = false; // 현재 타이핑 중인지 여부
     private Action onDialogueEnd; // 대화 종료 후 실행할 액션
     private DialogueData currentDialogue; // 현재 출력 중인 대사
@@ -50,18 +51,27 @@ public class DialogueManager : MonoBehaviour
 
         onDialogueEnd = onEndAction;
         dialoguePanel.SetActive(true);
-        StartCoroutine(DisplayNextDialogue());
+
+        inputLock = true; // 입력을 잠시 차단
+        StartCoroutine(UnlockInputAfterDelay()); // 0.1초 후 입력 허용
+        DisplayNextDialogue();
+    }
+
+    private IEnumerator UnlockInputAfterDelay()
+    {
+        yield return new WaitForSeconds(0.1f); // 0.1초 동안 입력 차단
+        inputLock = false;
     }
 
     /// <summary>
     /// 다음 대사 출력
     /// </summary>
-    private IEnumerator DisplayNextDialogue()
+    private void DisplayNextDialogue()
     {
         if (dialogueQueue.Count == 0)
         {
             EndDialogue();
-            yield break;
+            return;
         }
 
         currentDialogue = dialogueQueue.Dequeue();
@@ -89,7 +99,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (dialoguePanel.activeSelf && Input.anyKeyDown)
+        if (dialoguePanel.activeSelf && !inputLock && Input.anyKeyDown)
         {
             if (isTyping)
             {
@@ -101,7 +111,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 // 다음 문장 출력
-                StartCoroutine(DisplayNextDialogue());
+                DisplayNextDialogue();
             }
         }
     }

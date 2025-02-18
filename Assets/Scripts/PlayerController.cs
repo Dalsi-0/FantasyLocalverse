@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
         if (currentInteractable != null)
         {
             currentInteractable.Interact();
+            ClearInteractable();
         }
     }
     void OnSkill(InputValue inputValue)
