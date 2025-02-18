@@ -10,8 +10,9 @@ public class QuestNPC : InteractableBase
     {
         StartCoroutine(UnlockInputAfterDelay());
 
+        SetVirtualCameraActive(false);
         dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_merchant");
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera);
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
 
     private IEnumerator UnlockInputAfterDelay()
