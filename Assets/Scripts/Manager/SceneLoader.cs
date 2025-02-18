@@ -22,6 +22,9 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private TMP_Text tmiText;
     [SerializeField] private GameObject completeText;
     [SerializeField] private Animator completeTextAnim;
+    private Vector3 originPlayerPosition;
+
+    private float fakeProgress = 0f; 
 
     private string[] tmiMessages = {
         "TMI : 와! 자고 싶다.",
@@ -46,14 +49,23 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(ESceneType sceneType)
     {
+        if (SceneManager.GetActiveScene().name == ESceneType.Village.ToString())
+        {
+            SavePlayerPosition();
+        }
+
         StartCoroutine(LoadSceneAsync(sceneType));
     }
 
     private IEnumerator LoadSceneAsync(ESceneType sceneType)
     {
-        completeText.SetActive(false);
+        float minLoadTime = 2.0f;
+        float elapsedTime = 0f; 
+
         loadingScreen.SetActive(true);
         progressBar.value = 0;
+        fakeProgress = 0;
+        completeText.SetActive(false);
         tmiText.text = tmiMessages[Random.Range(0, tmiMessages.Length)];
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneType.ToString());
@@ -61,21 +73,39 @@ public class SceneLoader : MonoBehaviour
 
         while (!operation.isDone)
         {
-            progressBar.value = Mathf.Clamp01(operation.progress / 0.9f);
+            elapsedTime += Time.deltaTime;
 
-            if (operation.progress >= 0.9f)
+            float targetProgress = Mathf.Clamp01(operation.progress / 0.9f);
+            fakeProgress = Mathf.Lerp(fakeProgress, targetProgress, Time.deltaTime * 3f);
+            progressBar.value = fakeProgress;
+
+            if (fakeProgress >= 0.9f && elapsedTime >= minLoadTime)
             {
                 completeText.SetActive(true);
-                completeTextAnim.Play("CompleteLoadSceneText");
+
                 while (!Input.anyKeyDown)
                 {
                     yield return null;
                 }
+
                 operation.allowSceneActivation = true;
 
-                loadingScreen.SetActive(false);
+                if (sceneType == ESceneType.Village)
+                {
+                    RestorePlayerPosition();
+                }
             }
+
             yield return null;
         }
+    }
+    private void SavePlayerPosition()
+    {
+        originPlayerPosition = GameManager.Instance.player.transform.position;
+    }
+
+    private void RestorePlayerPosition()
+    {
+        GameManager.Instance.player.transform.position = originPlayerPosition;
     }
 }
