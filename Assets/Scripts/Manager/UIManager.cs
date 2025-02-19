@@ -6,16 +6,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable] // 인스펙터에서 보이게 하기 위해 추가
-public struct MiniGameUI
+public class MiniGameUI
 {
     public TextMeshProUGUI miniGameNameText;
     public TextMeshProUGUI miniGameDescText;
+    public TextMeshProUGUI miniGameLeaderboradText;
     public Button startButton;
 
     public void SetupUI(MiniGameDataSO minigame, System.Action onAccept)
     {
         miniGameNameText.text = minigame.gameName;
         miniGameDescText.text = minigame.description;
+
+        List<int> scores = LeaderboardManager.Instance.GetScores(minigame.sceneType == ESceneType.MiniGameBrid);
+
+        miniGameLeaderboradText.text = $"1st - {scores[0]}\n\n2nd - {scores[1]}\n\n3rd - {scores[2]}";
 
         startButton.onClick.RemoveAllListeners();
         startButton.onClick.AddListener(() => onAccept?.Invoke());

@@ -38,9 +38,6 @@ public class Brid_UIManager : MonoBehaviour
     {
         resultBestScore.text = _bestScore.ToString();
         resultGameScore.text = _gameScore.ToString();
-
-        PlayerPrefs.SetInt("BestScore", _bestScore);
-        PlayerPrefs.Save();
     }
 
     // 버튼기능

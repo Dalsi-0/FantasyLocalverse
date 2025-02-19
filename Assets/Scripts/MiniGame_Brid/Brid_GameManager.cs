@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum EMiniGameBridState
@@ -83,13 +85,26 @@ public class Brid_GameManager : MonoBehaviour
         brid_UIManager.SetActive_resultUI(true);
 
         bridController.gameObject.SetActive(false);
-        int highScore = PlayerPrefs.GetInt("BestScore", 0);
-        if(highScore < gameScore)
-        {
-            highScore = gameScore;
-        }
 
-        brid_UIManager.SetResultValue(highScore, gameScore);
+        brid_UIManager.SetResultValue(RegisterNewScore(), gameScore);
+    }
+
+    int RegisterNewScore()
+    {
+        List<int> ranks = LeaderboardManager.Instance.GetScores(true);
+
+        ranks.Add(gameScore);
+
+        int[] array = ranks.ToArray();
+        Array.Sort(array);
+        Array.Reverse(array);
+        ranks = array.ToList<int>();
+
+        ranks = ranks.GetRange(0, 3);
+
+        LeaderboardManager.Instance.UpdateLeaderboard(ranks, true);
+
+        return ranks[0];
     }
 
     public void PlusScore()
