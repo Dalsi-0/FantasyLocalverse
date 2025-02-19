@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
             myAnimator.SetBool("1_Move", isMoving);
             prevIsMoving = isMoving; // 이전 상태 업데이트
         }
+
+        float speedFactor = Mathf.Clamp(myRigidbody2D.velocity.magnitude * 0.3f, 0.5f, 1.5f);
+        myAnimator.speed = isMoving ? speedFactor : 1.0f; 
+
         MoveMent();
     }
 
