@@ -12,7 +12,6 @@ public class Ride : SkillBase
     
     protected override void ExecuteSkill()
     {
-        Debug.Log($"{skillData.skillName} ½ÇÇàdd");
         PlayerController player = GameManager.Instance.PlayerController;
         
         if (player != null)

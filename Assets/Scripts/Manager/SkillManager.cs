@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -10,9 +11,9 @@ public class SkillManager : MonoBehaviour
 {
     public static SkillManager Instance { get; private set; }
 
-    private Dictionary<Key, SkillBase> skillBindings = new Dictionary<Key, SkillBase>();
 
-    public SkillRepository repository;
+    [SerializeField] private SkillRepository repository;
+    [SerializeField] private SkillController skillController;
 
     private void Awake()
     {
@@ -31,20 +32,6 @@ public class SkillManager : MonoBehaviour
         SetSkillPreset();
     }
 
-    private void Update()
-    {
-        UpdateSkills();
-    }
-    
-    void UpdateSkills()
-    {
-        float deltaTime = Time.deltaTime;
-        foreach (SkillBase skill in skillBindings.Values)
-        {
-            skill.UpdateCooldown(deltaTime);
-        }
-    }
-
     private void SetSkillPreset()
     {
         if (SceneManager.GetActiveScene().name == ESceneType.Village.ToString())
@@ -59,6 +46,10 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+    public void CreateSkillEffectPrefabs(GameObject obj, Transform parent)
+    {
+        Instantiate(obj, parent);
+    }
 
     public void AddSkill(Key key, string skillName)
     {
@@ -67,19 +58,15 @@ public class SkillManager : MonoBehaviour
         Image cooldownImage = obj.transform.GetComponent<SkillIcon>().coolDownImage;
 
         // 스킬 생성 및 등록
-        SkillDataSO Data = repository.GetSkillData(skillName);
-        skillBindings[key] = repository.GetSkillBase(skillName, Data, cooldownImage);  // 키에 해당하는 스킬 등록
+        SkillDataSO data = repository.GetSkillData(skillName);
+        SkillBase skill = repository.GetSkillBase(skillName, data, cooldownImage);
+
+        // SkillController에 등록
+        skillController.AssignSkill(key, skill);
     }
 
-    public void UseSkill(Key keyCode)
+    public SkillController GetSkillController()
     {
-        if (skillBindings.ContainsKey(keyCode) && skillBindings[keyCode] != null)
-        {
-            skillBindings[keyCode].UseSkill();
-        }
-        else
-        {
-            Debug.Log($"{keyCode}에 할당된 스킬이 없습니다.");
-        }
+        return skillController;
     }
 }

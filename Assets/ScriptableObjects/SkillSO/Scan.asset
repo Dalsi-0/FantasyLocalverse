@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 2
   skillName: Scan
   cooldown: 5
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 3430048769097083621, guid: e7071e391cec1c747877e1394a67d554, type: 3}
