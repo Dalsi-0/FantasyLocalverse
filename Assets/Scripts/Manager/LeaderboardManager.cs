@@ -24,6 +24,7 @@ public class LeaderboardManager : MonoBehaviour
             return;
         }
     }
+
     public List<int> GetScores(bool isBird)
     {
         LoadMiniGameScore();

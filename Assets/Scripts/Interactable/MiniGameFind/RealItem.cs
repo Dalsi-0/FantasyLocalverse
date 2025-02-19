@@ -12,7 +12,11 @@ public class RealItem : InteractableBase
     {
         SetVirtualCameraActive(false);
         dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.MiniGame_RealItem);
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
+
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () =>
+        {
+            FindObjectOfType<MiniGameFindManager>().EndGame();
+        });
     }
 
 }

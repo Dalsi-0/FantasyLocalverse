@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 public enum EMiniGameFindState
@@ -35,7 +37,7 @@ public class MiniGameFindManager : MonoBehaviour
         if (gameState == EMiniGameFindState.Playing)
         {
             timer += Time.deltaTime;
-            timerText.text = "Time: " + timer.ToString("F1");
+            timerText.text = "Time: " + timer.ToString("F0");
         }
     }
 
@@ -60,7 +62,7 @@ public class MiniGameFindManager : MonoBehaviour
             case EMiniGameFindState.GameOver:
                 Time.timeScale = 0f;
                 resultUI.SetActive(true);
-                SetResultValue(00, timer);
+                SetResultValue(RegisterNewScore(), timer);
                 break;
         }
     }
@@ -82,7 +84,7 @@ public class MiniGameFindManager : MonoBehaviour
     {
         if (spawnPoints.Length == 0) return;
 
-        int realItemIndex = Random.Range(0, spawnPoints.Length);
+        int realItemIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
         Instantiate(realItem, spawnPoints[realItemIndex].position, Quaternion.identity);
 
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -97,10 +99,29 @@ public class MiniGameFindManager : MonoBehaviour
         ChangeGameState(EMiniGameFindState.GameOver);
     }
 
+    int RegisterNewScore()
+    {
+        List<int> ranks = LeaderboardManager.Instance.GetScores(false);
+
+        // 0을 제외한 점수만 리스트에 저장
+        ranks = ranks.Where(score => score != 0).ToList();
+        ranks.Add((int)timer);
+        ranks.Sort();
+        while (ranks.Count < 3)
+        {
+            ranks.Add(0);
+        }
+
+        ranks = ranks.Take(3).ToList();
+        LeaderboardManager.Instance.UpdateLeaderboard(ranks, false);
+
+        return ranks[0];
+    }
+
     public void SetResultValue(float bestScore, float gameScore)
     {
-        resultBestScore.text = bestScore.ToString("F1");
-        resultGameScore.text = gameScore.ToString("F1");
+        resultBestScore.text = bestScore.ToString("F0");
+        resultGameScore.text = gameScore.ToString("F0");
     }
 
     // 버튼기능
