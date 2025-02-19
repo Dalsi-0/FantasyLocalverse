@@ -11,7 +11,7 @@ public class Dash : SkillBase
 
     public Dash(SkillData data, Image image) : base(data, image)
     {
-        player = GameManager.Instance.playerController;
+        player = GameManager.Instance.PlayerController;
     }
 
     protected override void ExecuteSkill()

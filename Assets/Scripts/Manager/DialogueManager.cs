@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void StartDialogue(DialogueData[] dialogues, GameObject virtualCamera = null, Action onEndAction = null)
     {
-        GameManager.Instance.playerController.SetMoveLock(true);
+        GameManager.Instance.PlayerController.SetMoveLock(true);
         dialogueQueue.Clear();
         foreach (DialogueData dialogue in dialogues)
         {
@@ -133,7 +133,7 @@ public class DialogueManager : MonoBehaviour
         UIManager.Instance.FadeAnimation();
         dialogueText.text = "";
         speakerText.text = "";
-        GameManager.Instance.playerController.SetMoveLock(false);
+        GameManager.Instance.PlayerController.SetMoveLock(false);
         onDialogueEnd?.Invoke(); // 대화 끝난 후 실행할 기능 호출
     }
 }

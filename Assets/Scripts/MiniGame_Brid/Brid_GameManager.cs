@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EGameState
+public enum EMiniGameBridState
 {
     Ready,
     Playing,
@@ -11,7 +11,7 @@ public enum EGameState
 
 public class Brid_GameManager : MonoBehaviour
 {
-    EGameState gameState = EGameState.Ready;
+    EMiniGameBridState gameState = EMiniGameBridState.Ready;
     public GameObject[] grounds;
     public GameObject[] obstacles;
     public GameObject obstaclesParent;
@@ -22,38 +22,38 @@ public class Brid_GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeSystemState(EGameState.Ready);
+        ChangeSystemState(EMiniGameBridState.Ready);
     }
 
     private void Update()
     {
         if (Input.anyKeyDown)
         {
-            if (gameState == EGameState.Ready)
+            if (gameState == EMiniGameBridState.Ready)
             {
-                ChangeSystemState(EGameState.Playing);
+                ChangeSystemState(EMiniGameBridState.Playing);
             }
-            else if (gameState == EGameState.Playing)
+            else if (gameState == EMiniGameBridState.Playing)
             {
                 bridController.Jump();
             }
         }
     }
 
-    public void ChangeSystemState(EGameState state)
+    public void ChangeSystemState(EMiniGameBridState state)
     {
         gameState = state;
         switch (gameState)
         {
-            case EGameState.Ready:
+            case EMiniGameBridState.Ready:
                 EnterStageReady();
                 break;
 
-            case EGameState.Playing:
+            case EMiniGameBridState.Playing:
                 EnterStagePlaying();
                 break;
 
-            case EGameState.GameOver:
+            case EMiniGameBridState.GameOver:
                 EnterStageGameOver();
                 break;
         }
@@ -98,7 +98,7 @@ public class Brid_GameManager : MonoBehaviour
         brid_UIManager.SetPlayingGameScoreText(gameScore);
     }
 
-    public EGameState GetGameState()
+    public EMiniGameBridState GetGameState()
     {
         return gameState;
     }

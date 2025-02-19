@@ -39,7 +39,7 @@ public class BridController : MonoBehaviour
     {
         if (collision.CompareTag("Obstacle"))
         {
-            brid_GameManager.ChangeSystemState(EGameState.GameOver);
+            brid_GameManager.ChangeSystemState(EMiniGameBridState.GameOver);
         }
     }
 

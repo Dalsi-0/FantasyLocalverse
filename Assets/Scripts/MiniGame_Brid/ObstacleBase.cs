@@ -27,7 +27,7 @@ public class ObstacleBase : MonoBehaviour
 
     private void Update()
     {
-        if(brid_GameManager.GetGameState() != EGameState.GameOver)
+        if(brid_GameManager.GetGameState() != EMiniGameBridState.GameOver)
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
         }

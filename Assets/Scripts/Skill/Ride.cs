@@ -9,9 +9,17 @@ public class Ride : SkillBase
     public Ride(SkillData data, Image image) : base(data, image)
     {
     }
-
+    
     protected override void ExecuteSkill()
     {
-        Debug.Log($"{skillData.skillName} 실행ddd");
+        Debug.Log($"{skillData.skillName} 실행dd");
+        PlayerController player = GameManager.Instance.PlayerController;
+        
+        if (player != null)
+        {
+            player.ChangeSystemState(player.GetPlayerState() == EPlayerState.Normal 
+                ? EPlayerState.Ride 
+                : EPlayerState.Normal);
+        }
     }
 }

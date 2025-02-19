@@ -26,7 +26,7 @@ public class ViewPoint : InteractableBase
         
     private void PlayViewPointTimeline()
     {
-        GameManager.Instance.playerController.SetMoveLock(true);
+        GameManager.Instance.PlayerController.SetMoveLock(true);
 
         SetVirtualCameraActive(true);
         playableDirector.Play();
@@ -39,6 +39,6 @@ public class ViewPoint : InteractableBase
 
         playableDirector.Stop();
         SetVirtualCameraActive(false);
-        GameManager.Instance.playerController.SetMoveLock(false);
+        GameManager.Instance.PlayerController.SetMoveLock(false);
     }
 }
