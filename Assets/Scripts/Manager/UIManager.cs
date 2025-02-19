@@ -1,8 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
+[System.Serializable] // 인스펙터에서 보이게 하기 위해 추가
+public struct MiniGameUI
+{
+    public TextMeshProUGUI miniGameNameText;
+    public TextMeshProUGUI miniGameDescText;
+    public Button startButton;
+
+    public void SetupUI(MiniGameDataSO minigame, System.Action onAccept)
+    {
+        miniGameNameText.text = minigame.gameName;
+        miniGameDescText.text = minigame.description;
+
+        startButton.onClick.RemoveAllListeners();
+        startButton.onClick.AddListener(() => onAccept?.Invoke());
+    }
+}
 
 public class UIManager : MonoBehaviour
 {
@@ -11,8 +29,10 @@ public class UIManager : MonoBehaviour
 
     public Transform hudUISkill;
 
-    [SerializeField] Animator latterBoxAnimator;
-    [SerializeField] Animator FadeAnimator;
+    [SerializeField] private GameObject miniGameUIPanel; // 미니게임 UI 패널
+    [SerializeField] private MiniGameUI miniGameUI; // 미니게임 UI 구조체
+    [SerializeField] private Animator latterBoxAnimator;
+    [SerializeField] private Animator FadeAnimator;
 
     private void Awake()
     {
@@ -35,9 +55,8 @@ public class UIManager : MonoBehaviour
     {
         latterBoxAnimator.enabled = false;
         FadeAnimation();
+        miniGameUIPanel.SetActive(false);
     }
-
-
 
     public void ActiveOrDisableLetterbox(bool isActive)
     {
@@ -57,7 +76,30 @@ public class UIManager : MonoBehaviour
         FadeAnimator.Play("FadeIn");
     }
 
+    public void UpdateMiniGameUI(ESceneType miniGameKey)
+    {
+        MiniGameDataSO miniGames = GameManager.Instance.miniGameRepository.GetMiniGameInfo(miniGameKey);
+
+        if (miniGames.gameName != "none")
+        {
+            miniGameUIPanel.SetActive(true);
+            miniGameUI.SetupUI(miniGames, () => StartMiniGame(miniGames.sceneType));
+        }
+    }
 
 
+    #region 버튼기능
+    void StartMiniGame(ESceneType gameType)
+    {
+        miniGameUIPanel.SetActive(false);
+        SceneLoader.Instance.LoadScene(gameType);
+    }
+
+    public void CloseMiniGameUI()
+    {
+        // 화면 잠금 및 움직임 잠금 등등 해제 
+        miniGameUIPanel.SetActive(false);
+    }
+    #endregion
 
 }

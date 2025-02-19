@@ -43,6 +43,7 @@ public class Brid_UIManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    // 버튼기능
     public void ReturnToVillageButton()
     {
         SceneLoader.Instance.LoadScene(ESceneType.Village);

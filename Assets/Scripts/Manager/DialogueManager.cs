@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using KoreanTyper;
+using static DialogueDataSO;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -16,18 +17,18 @@ public class DialogueManager : MonoBehaviour
 
     public DialogueRepository repository;
 
-    private Queue<DialogueData> dialogueQueue; // 대사 저장
+    private Queue<DialogueLine> dialogueQueue; // 대사 저장
     private bool inputLock = false; // 키 입력을 막는 변수
     private bool isTyping = false; // 현재 타이핑 중인지 여부
     private Action onDialogueEnd; // 대화 종료 후 실행할 액션
-    private DialogueData currentDialogue; // 현재 출력 중인 대사
+    private DialogueLine currentDialogue; // 현재 출력 중인 대사
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            dialogueQueue = new Queue<DialogueData>();
+            dialogueQueue = new Queue<DialogueLine>();
             dialoguePanel.SetActive(false);
         }
         else
@@ -39,11 +40,11 @@ public class DialogueManager : MonoBehaviour
     /// <summary>
     /// 대화 시작 
     /// </summary>
-    public void StartDialogue(DialogueData[] dialogues, GameObject virtualCamera = null, Action onEndAction = null)
+    public void StartDialogue(List<DialogueLine> dialogues, GameObject virtualCamera = null, Action onEndAction = null)
     {
         GameManager.Instance.PlayerController.SetMoveLock(true);
         dialogueQueue.Clear();
-        foreach (DialogueData dialogue in dialogues)
+        foreach (var dialogue in dialogues)
         {
             dialogueQueue.Enqueue(dialogue);
         }

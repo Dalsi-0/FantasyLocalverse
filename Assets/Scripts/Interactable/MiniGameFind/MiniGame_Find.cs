@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DialogueDataSO;
 
-public class QuestNPC : InteractableBase
+public class MiniGame_Find : InteractableBase
 {
-    private DialogueData[] dialogueData;
+    private List<DialogueLine> dialogueData;
 
     private void Start()
     {
         StartCoroutine(UnlockInputAfterDelay());
 
         SetVirtualCameraActive(false);
-        dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_quest");
+        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.MiniGame_Find);
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
 

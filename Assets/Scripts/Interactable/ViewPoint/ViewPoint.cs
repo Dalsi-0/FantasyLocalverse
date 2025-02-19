@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using static DialogueDataSO;
 
 public class ViewPoint : InteractableBase
 {
     [SerializeField] private PlayableDirector playableDirector;
 
-    private DialogueData[] dialogueData;
+    private List<DialogueLine> dialogueData;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class ViewPoint : InteractableBase
         }
         else { Debug.LogWarning("playableDirector is null!!"); }
 
-        dialogueData = DialogueManager.Instance.repository.GetDialogue("Object_viewPoint");
+        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.Object_viewPoint);
 
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, PlayViewPointTimeline);
     }

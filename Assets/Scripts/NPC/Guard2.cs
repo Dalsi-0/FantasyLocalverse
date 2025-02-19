@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Guard2 : InteractableBase
 {
-    private DialogueData[] dialogueData;
-
     private void Start()
     {
         ActiveCoroutine();

@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DialogueDataSO;
 
 public class Merchant : InteractableBase
 {
-    private DialogueData[] dialogueData;
+    private List<DialogueLine> dialogueData;
 
     private void Start()
     {
         SetVirtualCameraActive(false);
         StartCoroutine(UnlockInputAfterDelay());
 
-        dialogueData = DialogueManager.Instance.repository.GetDialogue("NPC_merchant");
+        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.NPC_merchant);
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
 
