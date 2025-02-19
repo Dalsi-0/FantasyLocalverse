@@ -28,7 +28,11 @@ public class InteractableBase : MonoBehaviour, IInteractable
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerController>().SetInteractable(this);
+            PlayerController playerController = collision.transform.root.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.SetInteractable(this);
+            }
         }
     }
 
@@ -36,7 +40,11 @@ public class InteractableBase : MonoBehaviour, IInteractable
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerController>().ClearInteractable();
+            PlayerController playerController = collision.transform.root.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.ClearInteractable();
+            }
         }
     }
 }

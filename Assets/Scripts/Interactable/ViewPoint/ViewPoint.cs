@@ -35,8 +35,6 @@ public class ViewPoint : InteractableBase
 
     private void OnTimelineEnd(PlayableDirector director)
     {
-        Debug.Log("타임라인 종료");
-
         playableDirector.Stop();
         SetVirtualCameraActive(false);
         GameManager.Instance.PlayerController.SetMoveLock(false);
