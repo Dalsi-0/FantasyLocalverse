@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public GameObject player;
+    public PlayerController playerController;
 
     private void Awake()
     {
@@ -27,5 +28,6 @@ public class GameManager : MonoBehaviour
     void InitSetting()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        playerController = player.GetComponent<PlayerController>();
     }
 }
