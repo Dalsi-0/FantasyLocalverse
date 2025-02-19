@@ -107,22 +107,12 @@ public class SceneLoader : MonoBehaviour
     }
     private void SavePlayerPosition()
     {
-        SetManagersActive(false);
         originPlayerPosition = GameManager.Instance.player.transform.position;
     }
 
     private void RestorePlayerPosition()
     {
-        SetManagersActive(true);
         Camera.main.transform.position = originPlayerPosition;
         GameManager.Instance.player.transform.position = originPlayerPosition;
-    }
-
-    private void SetManagersActive(bool state)
-    {
-        for (int i = 0; i < managers.Length; i++)
-        {
-          //  managers[i].SetActive(state);
-        }
     }
 }
