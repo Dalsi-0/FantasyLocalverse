@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class SkillRepository : MonoBehaviour
 {
-    public static SkillRepository Instance { get; private set; }
-
     [SerializeField]
     private List<SkillData> skillList = new List<SkillData>();
 
@@ -19,16 +17,7 @@ public class SkillRepository : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            Init();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Init();
     }
 
     private void Init()

@@ -11,6 +11,8 @@ public class SkillManager : MonoBehaviour
 
     private Dictionary<Key, SkillBase> skillBindings = new Dictionary<Key, SkillBase>();
 
+    public SkillRepository repository;
+
     private void Awake()
     {
         if (Instance == null)
@@ -40,12 +42,12 @@ public class SkillManager : MonoBehaviour
     public void AddSkill(Key key, string skillName)
     {
         // UI 추가
-        GameObject obj = Instantiate(SkillRepository.Instance.GetSkillUIIcon(skillName), UIManager.Instance.hudUISkill);
+        GameObject obj = Instantiate(repository.GetSkillUIIcon(skillName), UIManager.Instance.hudUISkill);
         Image cooldownImage = obj.transform.GetComponent<SkillIcon>().coolDownImage;
 
         // 스킬 생성 및 등록
-        SkillData Data = SkillRepository.Instance.GetSkillData(skillName);
-        skillBindings[key] = SkillRepository.Instance.GetSkillBase(skillName, Data, cooldownImage);  // 키에 해당하는 스킬 등록
+        SkillData Data = repository.GetSkillData(skillName);
+        skillBindings[key] = repository.GetSkillBase(skillName, Data, cooldownImage);  // 키에 해당하는 스킬 등록
     }
 
     public void UseSkill(Key keyCode)
