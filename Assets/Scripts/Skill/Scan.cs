@@ -14,5 +14,7 @@ public class Scan : SkillBase
     {
         Debug.Log($"{skillData.skillName} 실행ss");
 
+        // 지속시간 동안 이동 멈춤.
+
     }
 }

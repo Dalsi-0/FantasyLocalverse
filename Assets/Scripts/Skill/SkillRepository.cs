@@ -39,6 +39,9 @@ public class SkillRepository : MonoBehaviour
 
             case "Ride":
                 return new Ride(dashData, image);
+
+            case "Scan":
+                return new Scan(dashData, image);
         }
         return null;
     }

@@ -104,21 +104,6 @@ public class PlayerController : MonoBehaviour
         SetPlayerStat();
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
-        SetSkillPreset();
-    }
-
-    private void SetSkillPreset()
-    {
-        if(SceneManager.GetActiveScene().name == ESceneType.Village.ToString())
-        {
-            SkillManager.Instance.AddSkill(Key.Space, "Dash");
-            SkillManager.Instance.AddSkill(Key.R, "Ride");
-        }
-        else if(SceneManager.GetActiveScene().name == ESceneType.MiniGameFind.ToString())
-        {
-            SkillManager.Instance.AddSkill(Key.Space, "Dash");
-            SkillManager.Instance.AddSkill(Key.R, "Ride");
-        }
     }
 
     private void SetPlayerStat()

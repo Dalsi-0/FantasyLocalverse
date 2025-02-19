@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SkillManager : MonoBehaviour
@@ -24,6 +25,12 @@ public class SkillManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Start()
+    {
+        SetSkillPreset();
+    }
+
     private void Update()
     {
         UpdateSkills();
@@ -35,6 +42,20 @@ public class SkillManager : MonoBehaviour
         foreach (SkillBase skill in skillBindings.Values)
         {
             skill.UpdateCooldown(deltaTime);
+        }
+    }
+
+    private void SetSkillPreset()
+    {
+        if (SceneManager.GetActiveScene().name == ESceneType.Village.ToString())
+        {
+            AddSkill(Key.Space, "Dash");
+            AddSkill(Key.R, "Ride");
+        }
+        else if (SceneManager.GetActiveScene().name == ESceneType.MiniGameFind.ToString())
+        {
+            AddSkill(Key.Space, "Dash");
+            AddSkill(Key.R, "Scan");
         }
     }
 
