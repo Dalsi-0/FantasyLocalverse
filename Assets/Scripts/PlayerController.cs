@@ -86,6 +86,11 @@ public class PlayerController : MonoBehaviour
                 rideTransform.gameObject.SetActive(true);
                 break;
         }
+
+        if (isMoving)
+        {
+            usingStat.myAnimator.SetBool("1_Move", isMoving);
+        }
     }
     public EPlayerState GetPlayerState()
     {
