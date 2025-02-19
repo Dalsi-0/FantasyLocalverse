@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class SkillRepository : MonoBehaviour
 {
     [SerializeField]
-    private List<SkillData> skillList = new List<SkillData>();
+    private List<SkillDataSO> skillList = new List<SkillDataSO>();
 
     [SerializeField]
     private List<GameObject> skillUIIcon = new List<GameObject>();
 
-    private Dictionary<string, SkillData> skillDictionary = new Dictionary<string, SkillData>();
+    private Dictionary<string, SkillDataSO> skillDictionary = new Dictionary<string, SkillDataSO>();
     private Dictionary<string, GameObject> skillUIIconDictionary = new Dictionary<string, GameObject>();
 
     private void Awake()
@@ -30,7 +30,7 @@ public class SkillRepository : MonoBehaviour
         }
     }
 
-    public SkillBase GetSkillBase(string skillName, SkillData dashData, Image image)
+    public SkillBase GetSkillBase(string skillName, SkillDataSO dashData, Image image)
     {
         switch (skillName)
         {
@@ -42,9 +42,9 @@ public class SkillRepository : MonoBehaviour
         }
         return null;
     }
-    public SkillData GetSkillData(string skillName)
+    public SkillDataSO GetSkillData(string skillName)
     {
-        if (skillDictionary.TryGetValue(skillName, out SkillData skill))
+        if (skillDictionary.TryGetValue(skillName, out SkillDataSO skill))
         {
             return skill;
         }

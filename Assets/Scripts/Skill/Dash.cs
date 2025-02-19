@@ -9,7 +9,7 @@ public class Dash : SkillBase
     private PlayerController player;
     private float dashTime = 0.15f;  // 대시 지속 시간
 
-    public Dash(SkillData data, Image image) : base(data, image)
+    public Dash(SkillDataSO data, Image image) : base(data, image)
     {
         player = GameManager.Instance.PlayerController;
     }

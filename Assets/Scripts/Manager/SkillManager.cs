@@ -46,7 +46,7 @@ public class SkillManager : MonoBehaviour
         Image cooldownImage = obj.transform.GetComponent<SkillIcon>().coolDownImage;
 
         // 스킬 생성 및 등록
-        SkillData Data = repository.GetSkillData(skillName);
+        SkillDataSO Data = repository.GetSkillData(skillName);
         skillBindings[key] = repository.GetSkillBase(skillName, Data, cooldownImage);  // 키에 해당하는 스킬 등록
     }
 

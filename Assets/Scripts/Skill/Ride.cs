@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Ride : SkillBase
 {
-    public Ride(SkillData data, Image image) : base(data, image)
+    public Ride(SkillDataSO data, Image image) : base(data, image)
     {
     }
     

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public abstract class SkillBase
 {
-    protected SkillData skillData;
+    protected SkillDataSO skillData;
     protected float currentCooldown;
 
     private Image coolDownImage;
 
-    public SkillBase(SkillData data, Image image)
+    public SkillBase(SkillDataSO data, Image image)
     {
         skillData = data;
         currentCooldown = 0;

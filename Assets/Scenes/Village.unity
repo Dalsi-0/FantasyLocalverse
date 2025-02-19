@@ -208,7 +208,6 @@ GameObject:
   m_Component:
   - component: {fileID: 14319658}
   - component: {fileID: 14319657}
-  - component: {fileID: 14319659}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -228,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc87de894494b8e4aa14ef0166fca4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  repository: {fileID: 1284020067}
 --- !u!4 &14319658
 Transform:
   m_ObjectHideFlags: 0
@@ -243,24 +243,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &14319659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14319656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872723c4796ab4444a38b54079f753c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillList:
-  - {fileID: 11400000, guid: 5e71f705f012a914db7f061a21e30077, type: 2}
-  - {fileID: 11400000, guid: 2daee3afae4ea144caf6e48b22248743, type: 2}
-  skillUIIcon:
-  - {fileID: 3202522753683097817, guid: 2af1f04ee43a82644ad90478a70b15b9, type: 3}
-  - {fileID: 3202522753683097817, guid: 0d2eabe7fb767454bb79e761fc898aab, type: 3}
 --- !u!1 &28219688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,6 +2742,7 @@ Transform:
   m_Children:
   - {fileID: 1729005811}
   - {fileID: 1512733096}
+  - {fileID: 1284020066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300409908
@@ -20766,6 +20749,56 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39501be96707ffe4898cabe38aec7705, type: 3}
+--- !u!1 &1284020065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1284020066}
+  - component: {fileID: 1284020067}
+  m_Layer: 0
+  m_Name: SkillRepository
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1284020066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284020065}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 296774447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284020067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284020065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872723c4796ab4444a38b54079f753c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillList:
+  - {fileID: 11400000, guid: 5e71f705f012a914db7f061a21e30077, type: 2}
+  - {fileID: 11400000, guid: 2daee3afae4ea144caf6e48b22248743, type: 2}
+  skillUIIcon:
+  - {fileID: 3202522753683097817, guid: 2af1f04ee43a82644ad90478a70b15b9, type: 3}
+  - {fileID: 3202522753683097817, guid: 0d2eabe7fb767454bb79e761fc898aab, type: 3}
 --- !u!1 &1285470054
 GameObject:
   m_ObjectHideFlags: 0
