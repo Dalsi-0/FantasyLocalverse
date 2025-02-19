@@ -37,4 +37,6 @@ public class SkillController : MonoBehaviour
             Debug.Log($"{key}에 할당된 스킬이 없습니다.");
         }
     }
+
+
 }

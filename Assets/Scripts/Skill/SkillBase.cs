@@ -8,6 +8,7 @@ public abstract class SkillBase
 {
     protected SkillDataSO skillData;
     protected float currentCooldown;
+    protected GameObject myEffectObject;
 
     private Image coolDownImage;
 

@@ -13,7 +13,7 @@ public class SkillManager : MonoBehaviour
 
 
     [SerializeField] private SkillRepository repository;
-    [SerializeField] private SkillController skillController;
+    public SkillController skillController;
 
     private void Awake()
     {
@@ -46,9 +46,9 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    public void CreateSkillEffectPrefabs(GameObject obj, Transform parent)
+    public GameObject CreateSkillEffectPrefabs(GameObject obj, Transform parent )
     {
-        Instantiate(obj, parent);
+        return Instantiate(obj, parent);
     }
 
     public void AddSkill(Key key, string skillName)
@@ -65,8 +65,4 @@ public class SkillManager : MonoBehaviour
         skillController.AssignSkill(key, skill);
     }
 
-    public SkillController GetSkillController()
-    {
-        return skillController;
-    }
 }
