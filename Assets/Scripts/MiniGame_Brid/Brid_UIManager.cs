@@ -34,10 +34,10 @@ public class Brid_UIManager : MonoBehaviour
         resultUI.SetActive(active);
     }
 
-    public void SetResultValue(int _bestScore, int _gameScore)
+    public void SetResultValue(int bestScore, int gameScore)
     {
-        resultBestScore.text = _bestScore.ToString();
-        resultGameScore.text = _gameScore.ToString();
+        resultBestScore.text = bestScore.ToString();
+        resultGameScore.text = gameScore.ToString();
     }
 
     // 버튼기능

@@ -10,6 +10,8 @@ public enum EDialogueKey
     MiniGame_Brid,
     NPC_merchant,
     MiniGame_Find,
+    MiniGame_FakeItem,
+    MiniGame_RealItem,
 }
 
 public class DialogueRepository : MonoBehaviour

@@ -45,3 +45,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LostItem
+    uniqueID: 3829848079
+    locked: 0
