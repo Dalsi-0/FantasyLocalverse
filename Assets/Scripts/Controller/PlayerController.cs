@@ -138,6 +138,9 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         myRigidbody2D.velocity = dashDir * dashSpeed;
 
+        transform.rotation = Quaternion.Euler(0f, myRigidbody2D.velocity.x > 0 ? 180f : 0f, 0f);
+        lastDirection = myRigidbody2D.velocity.x > 0 ? 1 : -1;
+
         yield return new WaitForSeconds(dashTime); // 대시 지속 시간
 
         isDashing = false;
