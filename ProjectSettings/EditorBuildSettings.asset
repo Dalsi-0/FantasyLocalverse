@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGameBrid.unity
     guid: 8708c2af4ea26494e8cdf08ba36fc7b1
+  - enabled: 1
+    path: Assets/Scenes/MiniGameFind.unity
+    guid: c133aeea1b4cde4479258ff0a6ce977e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9787f881e4061454eaad33fac5c8e139, type: 2}

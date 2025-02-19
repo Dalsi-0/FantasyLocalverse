@@ -13,7 +13,13 @@ public class MiniGame_Find : InteractableBase
 
         SetVirtualCameraActive(false);
         dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.MiniGame_Find);
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => ActiveMiniGameUI());
+    }
+
+    void ActiveMiniGameUI()
+    {
+        SetVirtualCameraActive(false);
+        UIManager.Instance.UpdateMiniGameUI(ESceneType.MiniGameFind);
     }
 
     private IEnumerator UnlockInputAfterDelay()
