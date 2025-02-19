@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerStat
 {
@@ -103,6 +105,11 @@ public class PlayerController : MonoBehaviour
     {
         SetPlayerStat();
 
+        if (SceneManager.GetActiveScene().name != ESceneType.Village.ToString())
+        {
+            ShadowCaster2D shadowCaster2D = GetComponent<ShadowCaster2D>();
+            shadowCaster2D.enabled = false;
+        }
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
