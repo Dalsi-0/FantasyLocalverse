@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Guard2 : InteractableBase
 {
+    public GameObject hitText;
+
     private void Start()
     {
         ActiveCoroutine();
@@ -11,6 +13,7 @@ public class Guard2 : InteractableBase
 
     void ActiveCoroutine()
     {
+        hitText.SetActive(true);
         StartCoroutine(UnlockInputAfterDelay());
     }
 
@@ -30,6 +33,7 @@ public class Guard2 : InteractableBase
     {
         if (collision.CompareTag("Player"))
         {
+            hitText.SetActive(false);
             StopAllCoroutines();
 
             BubbleManager.Instance.ShowBubble(gameObject, "寸脚 构具? 历府 啊扼");
