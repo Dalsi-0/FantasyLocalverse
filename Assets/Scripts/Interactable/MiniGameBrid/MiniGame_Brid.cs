@@ -12,19 +12,12 @@ public class MiniGame_Brid : InteractableBase
     {
         SetVirtualCameraActive(false);
         dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.MiniGame_Brid);
-        //onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
-        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => activeQuestUI());
+        onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => ActiveMiniGameUI());
     }
 
-    void activeQuestUI()
+    void ActiveMiniGameUI()
     {
-        // ui에 정보 전달
+        SetVirtualCameraActive(false);
         UIManager.Instance.UpdateMiniGameUI(ESceneType.MiniGameBrid);
-        // 레터박스 비활성화
-
-
-
-        // 화면 잠금 및 움직임 잠금 다시 설정하기 
-
     }
 }
