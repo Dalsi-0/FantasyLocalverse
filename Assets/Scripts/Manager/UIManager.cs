@@ -62,7 +62,8 @@ public class UIManager : MonoBehaviour
     {
         latterBoxAnimator.enabled = false;
         FadeAnimation();
-        if(miniGameUIPanel !=null)  miniGameUIPanel.SetActive(false);
+        if (miniGameUIPanel != null) miniGameUIPanel.SetActive(false);
+        if (changeClothesUIPanel != null) changeClothesUIPanel.SetActive(false);
     }
 
     public void ActiveOrDisableLetterbox(bool isActive)
