@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67eeb56fc2c747e49b685f1a97edc12c, type: 3}
+  m_Name: Cloth 3
+  m_EditorClassIdentifier: 
+  id: 2
+  spritesUpper:
+  - {fileID: -2733704329670916693, guid: fe1e7b637ae239b4b891676c52c6bfd3, type: 3}
+  - {fileID: -3283878981979326925, guid: fe1e7b637ae239b4b891676c52c6bfd3, type: 3}
+  - {fileID: -1496476315439836622, guid: fe1e7b637ae239b4b891676c52c6bfd3, type: 3}
+  spritesLower:
+  - {fileID: 6733594908915214068, guid: a5e265204e23ade409935208f58c8551, type: 3}
+  - {fileID: 3805336920832468827, guid: a5e265204e23ade409935208f58c8551, type: 3}

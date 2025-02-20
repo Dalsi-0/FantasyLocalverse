@@ -51,6 +51,11 @@ public class PlayerController : MonoBehaviour
     private InteractableBase currentInteractable; // 현재 상호작용 가능한 오브젝트 저장
     private float speedFactor;
 
+
+    public SpriteRenderer[] upperWearNomal;
+    public SpriteRenderer[] lowerWearNomal;
+    public SpriteRenderer[] upperWearRide;
+
     private void Start()
     {
         InitSetting();

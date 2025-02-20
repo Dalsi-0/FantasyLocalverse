@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject changeClothesUIPanel; // 의상 변경 UI 패널
     [SerializeField] private Animator latterBoxAnimator;
     [SerializeField] private Animator FadeAnimator;
+    [SerializeField] private ClothesController clothesController;
 
     private void Awake()
     {
@@ -109,6 +110,31 @@ public class UIManager : MonoBehaviour
     public void SetActiveChangeClothesUI(bool value)
     {
         changeClothesUIPanel.SetActive(value);
+    }
+
+    public void SelectClothes(int id)
+    {
+        clothesController.ChangeClothes(id);
+    }
+    public void SelectColor(int id)
+    {
+        Color color = Color.white;
+        switch (id)
+        {
+            case 0:
+                color = Color.white;
+                break;
+
+            case 1:
+                color = Color.red;
+                break;
+
+            case 2:
+                color = Color.green;
+                break;
+
+        }
+        clothesController.ChangeColors(color);
     }
     #endregion
 
