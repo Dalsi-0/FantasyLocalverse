@@ -118,23 +118,7 @@ public class UIManager : MonoBehaviour
     }
     public void SelectColor(int id)
     {
-        Color color = Color.white;
-        switch (id)
-        {
-            case 0:
-                color = Color.white;
-                break;
-
-            case 1:
-                color = Color.red;
-                break;
-
-            case 2:
-                color = Color.green;
-                break;
-
-        }
-        clothesController.ChangeColors(color);
+        clothesController.ChangeColors(id);
     }
     #endregion
 

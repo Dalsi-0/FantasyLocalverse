@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 
@@ -8,6 +9,12 @@ public class ClothesController : MonoBehaviour
     [SerializeField] private ClothesRepository clothesRepository;
 
     private PlayerController controller;
+
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {
@@ -34,8 +41,25 @@ public class ClothesController : MonoBehaviour
         }
     }
 
-    public void ChangeColors(UnityEngine.Color color)
+    public void ChangeColors(int colorId)
     {
+        UnityEngine.Color color = UnityEngine.Color.white;
+        switch (colorId)
+        {
+            case 0:
+                color = UnityEngine.Color.white;
+                break;
+
+            case 1:
+                color = UnityEngine.Color.red;
+                break;
+
+            case 2:
+                color = UnityEngine.Color.green;
+                break;
+
+        }
+
         foreach (var item in controller.upperWearNomal)
         {
             item.color = color;
