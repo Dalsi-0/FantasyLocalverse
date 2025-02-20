@@ -11,8 +11,6 @@ public class CameraController : MonoBehaviour
 
     private GameManager gameManager;
 
-    Vector2 mousePosition;
-
     private void Start()
     {
         InitSetting();
@@ -23,15 +21,10 @@ public class CameraController : MonoBehaviour
         Look();
     }
 
-
     void InitSetting()
     {
         gameManager = GameManager.Instance;
-
-        PlayerInput playerInput = GetComponent<PlayerInput>();
-
     }
-
 
     /// <summary>
     /// 카메라 피벗을 기준으로하는 카메라 기본 움직임
@@ -48,14 +41,13 @@ public class CameraController : MonoBehaviour
     /// <summary>
     /// 카메라 피벗 위치 설정
     /// </summary>
-    /// <param name="mousePosition"></param>
+    /// <param name="mousePosition">마우스 위치 값</param>
     void ClampPivotToPlayer(Vector2 mousePosition)
     {
-        Vector3 targetPos = Camera.main.ScreenToWorldPoint( mousePosition);
+        Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePosition);
         targetPos.z = 0f;
 
         float distance = Vector3.Distance(targetPos, gameManager.player.transform.position);
-
         if (distance > maxRadius)
         {
             targetPos = gameManager.player.transform.position + (targetPos - gameManager.player.transform.position).normalized * maxRadius;
@@ -63,5 +55,4 @@ public class CameraController : MonoBehaviour
 
         cameraPivot.position = targetPos;
     }
-
 }

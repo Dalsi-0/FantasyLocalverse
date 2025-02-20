@@ -48,8 +48,8 @@ public class BubbleManager : MonoBehaviour
     private IEnumerator ShowAndHideBubble(BubbleAutoResizer bubble, string message, float duration)
     {
         bubble.SetBubble(message);
-        yield return bubble.StartCoroutine(bubble.TypingRoutine()); // 타이핑 효과가 끝날 때까지 대기
-        yield return new WaitForSeconds(duration); // 추가로 2초 대기
-        bubble.HideBubble(); // 말풍선 숨기기
+        yield return bubble.StartCoroutine(bubble.TypingRoutine()); 
+        yield return new WaitForSeconds(duration); 
+        bubble.HideBubble(); 
     }
 }

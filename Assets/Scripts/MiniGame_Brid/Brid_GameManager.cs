@@ -42,6 +42,9 @@ public class Brid_GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 게임 상태를 변경하는 함수
+    /// </summary>
     public void ChangeSystemState(EMiniGameBridState state)
     {
         gameState = state;
@@ -89,6 +92,9 @@ public class Brid_GameManager : MonoBehaviour
         brid_UIManager.SetResultValue(RegisterNewScore(), gameScore);
     }
 
+    /// <summary>
+    /// 새로운 점수를 등록하고 리더보드를 업데이트하는 함수
+    /// </summary>
     int RegisterNewScore()
     {
         List<int> ranks = LeaderboardManager.Instance.GetScores(true);

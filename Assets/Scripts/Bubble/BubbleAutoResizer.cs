@@ -2,8 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using KoreanTyper;
-
-
 using System.Net.NetworkInformation;
 using System.Collections;
 
@@ -34,6 +32,10 @@ public class BubbleAutoResizer : MonoBehaviour
         BubbleManager.Instance.RegisterBubble(gameObject, this);
     }
 
+    /// <summary>
+    /// 최초 메세지 전달
+    /// </summary>
+    /// <param name="message"></param>
     public void SetBubble(string message)
     {
         bubbleImage.gameObject.SetActive(true);
@@ -41,13 +43,15 @@ public class BubbleAutoResizer : MonoBehaviour
         SetText(message);
     }
 
+    /// <summary>
+    /// 말풍선 숨기기
+    /// </summary>
     public void HideBubble()
     {
         bubbleText.text = "";
         bubbleImage.gameObject.SetActive(false);
         bubbleText.gameObject.SetActive(false);
     }
-
 
     /// <summary>
     /// 텍스트 내용을 변경하고 말풍선 크기를 자동 조절하는 함수
@@ -64,12 +68,10 @@ public class BubbleAutoResizer : MonoBehaviour
     /// </summary>
     private void ResizeBubble()
     {
-        // 텍스트 크기 계산
         Vector2 textSize = bubbleText.GetPreferredValues(maxSize.x, maxSize.y);
         textSize.x = Mathf.Clamp(textSize.x, minSize.x, maxSize.x);
         textSize.y = Mathf.Clamp(textSize.y, minSize.y, maxSize.y);
 
-        // 말풍선 크기 설정
         bubbleRect.sizeDelta = (textSize + padding) + new Vector2(2,2);
         textRect.sizeDelta = textSize;
 
@@ -90,5 +92,4 @@ public class BubbleAutoResizer : MonoBehaviour
             yield return new WaitForSeconds(0.04f);
         }
     }
-
 }

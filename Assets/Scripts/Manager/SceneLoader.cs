@@ -30,9 +30,9 @@ public class SceneLoader : MonoBehaviour
     private string[] tmiMessages = {
         "TMI : 와! 자고 싶다.",
         "TMI : 와! 배고프다.",
-        "TMI : 이번 팀 프로젝트는 어떨까?",
-        "TMI : 난 이 게임을 만들었어요!",
-        "TMI : 전 게임을 좋아합니다."
+        "TMI : 오랜만에 유니티 재밌었습니다~",
+        "TMI : 매일같이 야근한 결과입니다!",
+        "TMI : 리팩토링 아직 다 못했어요 ㅠ"
     };
 
     private void Awake()
@@ -48,6 +48,9 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 지정된 씬을 로드하는 함수
+    /// </summary>
     public void LoadScene(ESceneType sceneType)
     {
         if (SceneManager.GetActiveScene().name == ESceneType.Village.ToString())
@@ -58,6 +61,9 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneAsync(sceneType));
     }
 
+    /// <summary>
+    /// 씬을 비동기로 로드하는 코루틴
+    /// </summary>
     private IEnumerator LoadSceneAsync(ESceneType sceneType)
     {
         float minLoadTime = 2.0f;
@@ -93,7 +99,7 @@ public class SceneLoader : MonoBehaviour
 
                 loadingScreen.SetActive(false);
 
-                // 씬이 완전히 로드된 다음 프레임에 RestorePlayerPosition 실행
+                // 씬이 완전히 로드된 다음에 캐릭터 이동
                 yield return new WaitForSeconds(0.1f);
 
                 if (sceneType == ESceneType.Village)
@@ -105,11 +111,18 @@ public class SceneLoader : MonoBehaviour
             yield return null;
         }
     }
+
+    /// <summary>
+    /// 현재 플레이어 위치를 저장하는 함수
+    /// </summary>
     private void SavePlayerPosition()
     {
         originPlayerPosition = GameManager.Instance.player.transform.position;
     }
 
+    /// <summary>
+    /// 저장된 위치로 플레이어를 복원하는 함수
+    /// </summary>
     private void RestorePlayerPosition()
     {
         Camera.main.transform.position = originPlayerPosition;

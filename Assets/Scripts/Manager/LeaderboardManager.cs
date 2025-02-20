@@ -12,11 +12,10 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Awake()
     {
-        // 싱글톤 인스턴스 설정
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // 씬이 변경되어도 유지
+            DontDestroyOnLoad(gameObject);
         }
         else
         {

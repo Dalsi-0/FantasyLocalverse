@@ -61,13 +61,13 @@ public class DialogueManager : MonoBehaviour
         UIManager.Instance.ActiveOrDisableLetterbox(true);
 
         inputLock = true; // 입력을 잠시 차단
-        StartCoroutine(UnlockInputAfterDelay()); // 0.1초 후 입력 허용
+        StartCoroutine(UnlockInputAfterDelay()); 
         DisplayNextDialogue();
     }
 
     private IEnumerator UnlockInputAfterDelay()
     {
-        yield return new WaitForSeconds(0.1f); // 0.1초 동안 입력 차단
+        yield return new WaitForSeconds(0.1f); 
         inputLock = false;
     }
 
@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentDialogue = dialogueQueue.Dequeue();
-        speakerText.text = currentDialogue.speaker; // 화자 표시
+        speakerText.text = currentDialogue.speaker; 
 
         StartCoroutine(TypingRoutine());
     }
@@ -111,14 +111,13 @@ public class DialogueManager : MonoBehaviour
         {
             if (isTyping)
             {
-                // 타이핑 스킵: 전체 문장 바로 출력
+                // 타이핑 스킵
                 StopAllCoroutines();
                 dialogueText.text = currentDialogue.message;
                 isTyping = false;
             }
             else
             {
-                // 다음 문장 출력
                 DisplayNextDialogue();
             }
         }

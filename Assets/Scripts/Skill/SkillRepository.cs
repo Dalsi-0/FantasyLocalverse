@@ -30,21 +30,28 @@ public class SkillRepository : MonoBehaviour
         }
     }
 
-    public SkillBase GetSkillBase(string skillName, SkillDataSO dashData, Image image)
+    /// <summary>
+    /// 스킬 이름을 기반으로 SkillBase 객체를 생성하여 반환
+    /// </summary>
+    public SkillBase GetSkillBase(string skillName, SkillDataSO skillData, Image image)
     {
         switch (skillName)
         {
             case "Dash":
-                return new Dash(dashData, image);
+                return new Dash(skillData, image);
 
             case "Ride":
-                return new Ride(dashData, image);
+                return new Ride(skillData, image);
 
             case "Scan":
-                return new Scan(dashData, image);
+                return new Scan(skillData, image);
         }
         return null;
     }
+
+    /// <summary>
+    /// 스킬 이름을 기반으로 SkillDataSO를 반환
+    /// </summary>
     public SkillDataSO GetSkillData(string skillName)
     {
         if (skillDictionary.TryGetValue(skillName, out SkillDataSO skill))
@@ -54,6 +61,9 @@ public class SkillRepository : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// 스킬 이름을 기반으로 UI 아이콘을 반환
+    /// </summary>
     public GameObject GetSkillUIIcon(string skillName)
     {
         if (skillUIIconDictionary.TryGetValue(skillName, out GameObject skill))

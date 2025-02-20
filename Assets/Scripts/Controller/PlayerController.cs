@@ -11,16 +11,17 @@ public class PlayerStat
 {
     public float speed;
     public Animator myAnimator;
-    public ParticleSystem dashParticle;
+    public ParticleSystem moveParticle;
 
-    public PlayerStat(float speed, Animator myAnimator, ParticleSystem dashParticle)
+    public PlayerStat(float speed, Animator myAnimator, ParticleSystem moveParticle)
     {
         this.speed = speed;
         this.myAnimator = myAnimator;
-        this.dashParticle = dashParticle;
+        this.moveParticle = moveParticle;
     }
 }
 
+// 탑승 미탑승
 public enum EPlayerState
 {
     Normal,
@@ -31,27 +32,26 @@ public class PlayerController : MonoBehaviour
 {
     EPlayerState playerState = EPlayerState.Normal;
 
-    private static PlayerStat NormalStat;
-    private static PlayerStat RideStat;
+    private static PlayerStat NormalStat; // 일반 상태 능력치
+    private static PlayerStat RideStat; // 탑승 상태 능력치
 
     [SerializeField] Transform normalTransform;
     [SerializeField] Transform rideTransform;
     [SerializeField] ParticleSystem walkMoveParticle;
     [SerializeField] ParticleSystem rideMoveParticle;
     private Coroutine moveParticleCoroutine;
-
     private Rigidbody2D myRigidbody2D;
-    private PlayerStat usingStat;
+    private PlayerStat usingStat; // 현재 적용 중인 능력치
     private Vector2 moveDir = Vector2.zero;
     private float lastDirection = 0f; // 마지막 이동 방향 저장
     private bool isDashing = false; // 대시 상태 변수
     private bool moveLock = false; // 움직임 불가 상태
-    private bool isMoving = false;
+    private bool isMoving = false; // 현재 움직임 판단
     private bool prevIsMoving = false; // 이전 이동 상태 저장
     private InteractableBase currentInteractable; // 현재 상호작용 가능한 오브젝트 저장
     private float speedFactor;
 
-
+    // 옷 변경 기능 관련
     public SpriteRenderer[] upperWearNomal;
     public SpriteRenderer[] lowerWearNomal;
     public SpriteRenderer[] upperWearRide;
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
             if (isMoving)
             {
-                if (moveParticleCoroutine == null) // 이미 실행 중인지 확인
+                if (moveParticleCoroutine == null)
                     moveParticleCoroutine = StartCoroutine(PlayMoveParticle());
             }
             else
@@ -106,6 +106,10 @@ public class PlayerController : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
+
+    /// <summary>
+    /// 이동 시 파티클 효과를 재생하는 코루틴
+    /// </summary>
     private IEnumerator PlayMoveParticle()
     {
         while (isMoving)
@@ -118,10 +122,13 @@ public class PlayerController : MonoBehaviour
             {
                 rideMoveParticle.Play();
             }
-            yield return new WaitForSeconds(0.3f); 
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
+    /// <summary>
+    /// 플레이어 상태를 변경하는 함수
+    /// </summary>
     public void ChangeSystemState(EPlayerState state)
     {
         playerState = state;
@@ -145,13 +152,15 @@ public class PlayerController : MonoBehaviour
             usingStat.myAnimator.SetBool("1_Move", isMoving);
         }
     }
+
     public EPlayerState GetPlayerState()
     {
         return playerState;
     }
 
-
-
+    /// <summary>
+    /// 플레이어 상태별 능력치를 설정하는 함수
+    /// </summary>
     private void SetPlayerStat()
     {
         Animator normalAnimator = normalTransform.GetChild(0).GetComponent<Animator>();
@@ -164,11 +173,14 @@ public class PlayerController : MonoBehaviour
         RideStat = new PlayerStat(6f, rideAnimator, rideParticle);
     }
 
+    /// <summary>
+    /// 플레이어의 이동을 처리하는 함수
+    /// </summary>
     private void MoveMent()
     {
         if (moveLock) return; // 움직임이 잠긴 상태라면 아무것도 안 함
         if (isDashing) return; // 대시 중에는 이동 방향 변경 X
-        
+
         myRigidbody2D.velocity = moveDir * usingStat.speed;
 
         // 이동 방향이 변경될 때만 lastDirection 업데이트
@@ -179,6 +191,10 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, lastDirection > 0 ? 180f : 0f, 0f);
     }
+
+    /// <summary>
+    /// 대시를 수행하는 코루틴
+    /// </summary>
     public IEnumerator Dash(Vector2 dashDir, float dashSpeed, float dashTime)
     {
         isDashing = true;
@@ -192,15 +208,21 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
     }
 
-
+    /// <summary>
+    /// 현재 상호작용 가능한 오브젝트를 설정하는 함수
+    /// </summary>
     public void SetInteractable(InteractableBase interactable)
     {
         currentInteractable = interactable;
     }
+
     public void ClearInteractable()
     {
         currentInteractable = null;
     }
+    /// <summary>
+    /// 이동 잠금 상태를 설정하는 함수
+    /// </summary>
     public void SetMoveLock(bool state)
     {
         moveLock = state;
@@ -235,16 +257,13 @@ public class PlayerController : MonoBehaviour
 
             SkillManager.Instance.skillController.UseSkill(pressedKey);
         }
-    } 
-    
-    // 현재 눌린 키를 반환하는 함수
+    }
     private Key GetPressedKey()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame) return Key.Space;
         if (Keyboard.current.rKey.wasPressedThisFrame) return Key.R;
 
-        return Key.None; // 입력된 키가 없을 경우
+        return Key.None;
     }
-
     #endregion
 }

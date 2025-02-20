@@ -7,9 +7,7 @@ using UnityEngine;
 public class ClothesController : MonoBehaviour
 {
     [SerializeField] private ClothesRepository clothesRepository;
-
     private PlayerController controller;
-
 
     private void Awake()
     {
@@ -21,26 +19,34 @@ public class ClothesController : MonoBehaviour
         controller = GameManager.Instance.PlayerController;
     }
 
+    /// <summary>
+    /// 옷 스프라이트 변경
+    /// </summary>
+    /// <param name="clothID">변경할 옷 번호</param>
     public void ChangeClothes(int clothID)
     {
-        Sprite[] upper = clothesRepository.clothesDatas[clothID].spritesUpper;
-        Sprite[] lower = clothesRepository.clothesDatas[clothID].spritesLower;
+        var clothesData = clothesRepository.clothesDatas[clothID];
 
-        for (int i = 0; i < upper.Length; i++)
-        {
-            controller.upperWearNomal[i].sprite = upper[i];
-        }
-        for (int i = 0; i < lower.Length; i++)
-        {
-            controller.lowerWearNomal[i].sprite = lower[i];
-        }
+        ApplyClothes(controller.upperWearNomal, clothesData.spritesUpper);
+        ApplyClothes(controller.lowerWearNomal, clothesData.spritesLower);
+        ApplyClothes(controller.upperWearRide, clothesData.spritesUpper);
+    }
 
-        for (int i = 0; i < upper.Length; i++)
+    /// <summary>
+    /// 옷 변경 실제 기능
+    /// </summary>
+    private void ApplyClothes(SpriteRenderer[] target, Sprite[] source)
+    {
+        for (int i = 0; i < source.Length; i++)
         {
-            controller.upperWearRide[i].sprite = upper[i];
+            target[i].sprite = source[i];
         }
     }
 
+    /// <summary>
+    /// 옷 색상 변경
+    /// </summary>
+    /// <param name="colorId">변경할 색상 번호</param>
     public void ChangeColors(int colorId)
     {
         UnityEngine.Color color = UnityEngine.Color.white;
@@ -57,7 +63,6 @@ public class ClothesController : MonoBehaviour
             case 2:
                 color = UnityEngine.Color.green;
                 break;
-
         }
 
         foreach (var item in controller.upperWearNomal)
@@ -68,7 +73,6 @@ public class ClothesController : MonoBehaviour
         {
             item.color = color;
         }
-
         foreach (var item in controller.upperWearRide)
         {
             item.color = color;

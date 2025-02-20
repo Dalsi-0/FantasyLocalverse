@@ -33,6 +33,9 @@ public class ObstacleBase : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 장애물 위치를 오른쪽 끝으로 재설정
+    /// </summary>
     void ResetPosition()
     {
         lastPosition = GetRightmostObstaclePosition(isGround);
@@ -44,6 +47,10 @@ public class ObstacleBase : MonoBehaviour
         Vector3 newPosition = lastPosition + new Vector3(widthPadding, 0, 0);
         transform.position = newPosition;
     }
+
+    /// <summary>
+    /// 가장 오른쪽에 위치한 장애물의 좌표를 반환
+    /// </summary>
     Vector3 GetRightmostObstaclePosition(bool isGround)
     {
         Vector3 rightmostPosition = Vector3.zero;
@@ -76,6 +83,9 @@ public class ObstacleBase : MonoBehaviour
         return rightmostPosition;
     }
 
+    /// <summary>
+    /// 상하 장애물 간격을 무작위로 설정
+    /// </summary>
     void SetVerticalWidth()
     {
         float minGap = 3f;

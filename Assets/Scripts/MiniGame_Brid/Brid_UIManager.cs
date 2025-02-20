@@ -40,7 +40,9 @@ public class Brid_UIManager : MonoBehaviour
         resultGameScore.text = gameScore.ToString();
     }
 
-    // 버튼기능
+    /// <summary>
+    /// 결과 UI에서 마을로 돌아가는 버튼 기능 함수
+    /// </summary>
     public void ReturnToVillageButton()
     {
         resultUI.SetActive(false);

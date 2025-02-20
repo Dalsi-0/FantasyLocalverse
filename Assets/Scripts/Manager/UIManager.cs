@@ -66,6 +66,9 @@ public class UIManager : MonoBehaviour
         if (changeClothesUIPanel != null) changeClothesUIPanel.SetActive(false);
     }
 
+    /// <summary>
+    /// 레터박스를 활성화 또는 비활성화하는 함수
+    /// </summary>
     public void ActiveOrDisableLetterbox(bool isActive)
     {
         latterBoxAnimator.enabled = true;
@@ -84,6 +87,9 @@ public class UIManager : MonoBehaviour
         FadeAnimator.Play("FadeIn");
     }
 
+    /// <summary>
+    /// 미니게임 UI를 업데이트하는 함수
+    /// </summary>
     public void UpdateMiniGameUI(ESceneType miniGameKey)
     {
         MiniGameDataSO miniGames = GameManager.Instance.miniGameRepository.GetMiniGameInfo(miniGameKey);
@@ -94,7 +100,6 @@ public class UIManager : MonoBehaviour
             miniGameUI.SetupUI(miniGames, () => StartMiniGame(miniGames.sceneType));
         }
     }
-
 
     #region 버튼기능
     void StartMiniGame(ESceneType gameType)

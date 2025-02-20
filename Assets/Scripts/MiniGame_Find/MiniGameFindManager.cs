@@ -41,6 +41,9 @@ public class MiniGameFindManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 게임 상태를 변경하는 함수
+    /// </summary>
     public void ChangeGameState(EMiniGameFindState state)
     {
         gameState = state;
@@ -67,6 +70,9 @@ public class MiniGameFindManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 게임 시작 전 3초 카운트다운 진행
+    /// </summary>
     private IEnumerator StartCountdown()
     {
         countdownText.gameObject.SetActive(true);
@@ -79,7 +85,10 @@ public class MiniGameFindManager : MonoBehaviour
         SpawnItems();
         ChangeGameState(EMiniGameFindState.Playing);
     }
-
+    
+    /// <summary>
+    /// 아이템(정답, 가짜) 스폰
+    /// </summary>
     private void SpawnItems()
     {
         if (spawnPoints.Length == 0) return;
@@ -99,6 +108,9 @@ public class MiniGameFindManager : MonoBehaviour
         ChangeGameState(EMiniGameFindState.GameOver);
     }
 
+    /// <summary>
+    /// 새로운 최고 점수를 등록하고 리더보드를 업데이트하는 함수
+    /// </summary>
     int RegisterNewScore()
     {
         List<int> ranks = LeaderboardManager.Instance.GetScores(false);
@@ -118,13 +130,18 @@ public class MiniGameFindManager : MonoBehaviour
         return ranks[0];
     }
 
+    /// <summary>
+    /// 결과 UI에 최고 점수 및 현재 점수를 표시
+    /// </summary>
     public void SetResultValue(float bestScore, float gameScore)
     {
         resultBestScore.text = bestScore.ToString("F0");
         resultGameScore.text = gameScore.ToString("F0");
     }
 
-    // 버튼기능
+    /// <summary>
+    /// 마을로 돌아가는 버튼 기능
+    /// </summary>
     public void ReturnToVillageButton()
     {
         resultUI.SetActive(false);

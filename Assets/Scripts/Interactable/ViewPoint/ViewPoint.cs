@@ -33,7 +33,6 @@ public class ViewPoint : InteractableBase
         playableDirector.Play();
     }
 
-
     private void OnTimelineEnd(PlayableDirector director)
     {
         playableDirector.Stop();

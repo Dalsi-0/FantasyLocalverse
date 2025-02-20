@@ -32,6 +32,9 @@ public class SkillManager : MonoBehaviour
         SetSkillPreset();
     }
 
+    /// <summary>
+    /// 현재 씬에 따라 스킬 프리셋을 설정하는 함수
+    /// </summary>
     private void SetSkillPreset()
     {
         if (SceneManager.GetActiveScene().name == ESceneType.Village.ToString())
@@ -51,6 +54,9 @@ public class SkillManager : MonoBehaviour
         return Instantiate(obj, parent);
     }
 
+    /// <summary>
+    /// 지정된 키에 스킬을 추가하는 함수
+    /// </summary>
     public void AddSkill(Key key, string skillName)
     {
         // UI 추가
@@ -64,5 +70,4 @@ public class SkillManager : MonoBehaviour
         // SkillController에 등록
         skillController.AssignSkill(key, skill);
     }
-
 }
