@@ -2,34 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+public class PlayerClothesData
+{
+    public int clothID;
+    public int colorID;
 
+    public PlayerClothesData(int clothID, int colorID)
+    {
+        this.clothID = clothID;
+        this.colorID = colorID;
+    }
+}
 
 public class ClothesController : MonoBehaviour
 {
     [SerializeField] private ClothesRepository clothesRepository;
-    private PlayerController controller;
+
+    private int clothID;
+    private int colorID;
+
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
-    {
-        controller = GameManager.Instance.PlayerController;
-    }
-
     /// <summary>
     /// 옷 스프라이트 변경
     /// </summary>
-    /// <param name="clothID">변경할 옷 번호</param>
-    public void ChangeClothes(int clothID)
+    /// <param name="clothId">변경할 옷 번호</param>
+    public void ChangeClothes(int clothId)
     {
-        var clothesData = clothesRepository.clothesDatas[clothID];
+        var clothesData = clothesRepository.clothesDatas[clothId];
+        
+        ApplyClothes(GameManager.Instance.PlayerController.upperWearNomal, clothesData.spritesUpper);
+        ApplyClothes(GameManager.Instance.PlayerController.lowerWearNomal, clothesData.spritesLower);
+        ApplyClothes(GameManager.Instance.PlayerController.upperWearRide, clothesData.spritesUpper);
+        
+        this.clothID = clothId;
 
-        ApplyClothes(controller.upperWearNomal, clothesData.spritesUpper);
-        ApplyClothes(controller.lowerWearNomal, clothesData.spritesLower);
-        ApplyClothes(controller.upperWearRide, clothesData.spritesUpper);
+        GameManager.Instance.SavePlayerClothes(clothID, colorID);
     }
 
     /// <summary>
@@ -65,17 +77,21 @@ public class ClothesController : MonoBehaviour
                 break;
         }
 
-        foreach (var item in controller.upperWearNomal)
+        foreach (var item in GameManager.Instance.PlayerController.upperWearNomal)
         {
             item.color = color;
         }
-        foreach (var item in controller.lowerWearNomal)
+        foreach (var item in GameManager.Instance.PlayerController.lowerWearNomal)
         {
             item.color = color;
         }
-        foreach (var item in controller.upperWearRide)
+        foreach (var item in GameManager.Instance.PlayerController.upperWearRide)
         {
             item.color = color;
         }
+
+        this.colorID = colorId;
+
+        GameManager.Instance.SavePlayerClothes(clothID, colorID);
     }
 }

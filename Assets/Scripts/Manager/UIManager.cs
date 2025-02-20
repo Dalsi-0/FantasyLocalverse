@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject changeClothesUIPanel; // 의상 변경 UI 패널
     [SerializeField] private Animator latterBoxAnimator;
     [SerializeField] private Animator FadeAnimator;
-    [SerializeField] private ClothesController clothesController;
+    public ClothesController clothesController;
 
     private void Awake()
     {

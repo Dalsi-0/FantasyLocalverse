@@ -11,7 +11,7 @@ public class DialogueManager : BaseManager
 {
     public static DialogueManager Instance { get; private set; }
 
-    public DialogueRepository repository;
+    private DialogueRepository repository;
     private Queue<DialogueLine> dialogueQueue; // 대사 저장
     private bool inputLock = false; // 키 입력을 막는 변수
     private bool isTyping = false; // 현재 타이핑 중인지 여부

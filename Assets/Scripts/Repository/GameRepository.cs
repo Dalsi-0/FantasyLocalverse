@@ -5,7 +5,8 @@ using static DialogueDataSO;
 
 public class GameRepository : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Transform playerSpawnPosition;
     [SerializeField] private List<MiniGameDataSO> miniGameDataList;
     private Dictionary<ESceneType, MiniGameDataSO> miniGameDictionary = new Dictionary<ESceneType, MiniGameDataSO>();
 
@@ -29,8 +30,19 @@ public class GameRepository : MonoBehaviour
         return null;
     }
 
-    public GameObject GetPlayer()
+    /// <summary>
+    /// 플레이어 프리팹을 반환
+    /// </summary>
+    public GameObject GetPlayerPrefab()
     {
-        return player;
+        return playerPrefab;
+    }
+
+    /// <summary>
+    /// 현재 씬에서 Player의 스폰 위치를 반환
+    /// </summary>
+    public Vector3 GetSpawnPosition()
+    {
+        return playerSpawnPosition.position;
     }
 }

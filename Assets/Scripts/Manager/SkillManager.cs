@@ -11,7 +11,7 @@ public class SkillManager : BaseManager
 {
     public static SkillManager Instance { get; private set; }
 
-    public SkillRepository skillRepository;
+    private SkillRepository skillRepository;
     private SkillController skillController;
 
     protected override void Awake()

@@ -7,8 +7,10 @@ public class GameManager : BaseManager
 {
     public static GameManager Instance { get; private set; }
 
+    public GameObject Player;
     private GameRepository gameRepository;
     private PlayerController playerController;
+    private PlayerClothesData playerClothesData = new PlayerClothesData(0,0);
 
     public PlayerController PlayerController
     {
@@ -17,6 +19,7 @@ public class GameManager : BaseManager
             if (playerController == null)
             {
                 FindRepository();
+                SpawnPlayer();
                 FindPlayerController();
             }
             return playerController;
@@ -33,12 +36,6 @@ public class GameManager : BaseManager
         {
             Destroy(gameObject);
         }
-    }
-
-    private void OnEnable()
-    {
-        FindRepository();
-        FindPlayerController();
     }
 
     protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -62,8 +59,7 @@ public class GameManager : BaseManager
             return;
         }
 
-        GameObject player = gameRepository.GetPlayer();
-        playerController = player.GetComponent<PlayerController>();
+        playerController = Player.GetComponent<PlayerController>();
     }
 
     public MiniGameDataSO GetMiniGameInfo(ESceneType sceneType)
@@ -73,5 +69,30 @@ public class GameManager : BaseManager
             return gameRepository.GetMiniGameInfo(sceneType);
         }
         return null;
+    }
+
+    private void SpawnPlayer()
+    {
+        GameObject playerPrefab = gameRepository.GetPlayerPrefab();
+        Vector3 spawnPosition = gameRepository.GetSpawnPosition();
+
+        Player = Instantiate(playerPrefab, spawnPosition, Quaternion.identity);
+        Invoke("ApplySavedClothes", 0.1f);
+    }
+
+    private void ApplySavedClothes()
+    {
+        UIManager.Instance.clothesController.ChangeClothes(playerClothesData.clothID);
+        UIManager.Instance.clothesController.ChangeColors(playerClothesData.colorID);
+    }
+
+    public PlayerClothesData GetPlayerClothes()
+    {
+        return playerClothesData;
+    }
+    public void SavePlayerClothes(int clothID, int colorID)
+    {
+        playerClothesData.clothID = clothID;
+        playerClothesData.colorID = colorID;
     }
 }
