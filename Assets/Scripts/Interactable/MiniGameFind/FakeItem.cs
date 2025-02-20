@@ -11,7 +11,7 @@ public class FakeItem : InteractableBase
     private void Start()
     {
         SetVirtualCameraActive(false);
-        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.MiniGame_FakeItem);
+        dialogueData = DialogueManager.Instance.GetDialogue(EDialogueKey.MiniGame_FakeItem);
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
 

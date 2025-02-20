@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using static DialogueDataSO;
 
-public class MiniGameRepository : MonoBehaviour
+public class GameRepository : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     [SerializeField] private List<MiniGameDataSO> miniGameDataList;
-
     private Dictionary<ESceneType, MiniGameDataSO> miniGameDictionary = new Dictionary<ESceneType, MiniGameDataSO>();
 
     private void Awake()
@@ -27,5 +27,10 @@ public class MiniGameRepository : MonoBehaviour
             return miniGameData;
         }
         return null;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }

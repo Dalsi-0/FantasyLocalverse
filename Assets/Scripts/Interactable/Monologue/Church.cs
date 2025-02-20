@@ -11,7 +11,7 @@ public class Church : InteractableBase
     private void Start()
     {
         SetVirtualCameraActive(false);
-        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.Object_church);
+        dialogueData = DialogueManager.Instance.GetDialogue(EDialogueKey.Object_church);
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
 

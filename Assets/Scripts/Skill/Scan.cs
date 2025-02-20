@@ -11,7 +11,7 @@ public class Scan : SkillBase
 {
     public Scan(SkillDataSO data, Image image) : base(data, image)
     {
-        myEffectObject = SkillManager.Instance.CreateSkillEffectPrefabs(skillData.effectPrefab, GameManager.Instance.player.transform);
+        myEffectObject = SkillManager.Instance.CreateSkillEffectPrefabs(skillData.effectPrefab, GameManager.Instance.PlayerController.transform);
     }
     
     protected override void ExecuteSkill()

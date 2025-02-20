@@ -10,9 +10,9 @@ public class Ride : SkillBase
 
     public Ride(SkillDataSO data, Image image) : base(data, image)
     {
-        if(skillData.effectPrefab != null)  
+        if(skillData.effectPrefab != null)
         {
-            myEffectObject = SkillManager.Instance.CreateSkillEffectPrefabs(skillData.effectPrefab, GameManager.Instance.player.transform);
+            myEffectObject = SkillManager.Instance.CreateSkillEffectPrefabs(skillData.effectPrefab, GameManager.Instance.PlayerController.transform);
             myParticleSystem = myEffectObject.transform.GetComponent<ParticleSystem>();
         }
         else

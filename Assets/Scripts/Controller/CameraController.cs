@@ -9,21 +9,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float cameraSpeed;
     [SerializeField] private float maxRadius;
 
-    private GameManager gameManager;
-
-    private void Start()
-    {
-        InitSetting();
-    }
 
     private void FixedUpdate()
     {
         Look();
-    }
-
-    private void InitSetting()
-    {
-        gameManager = GameManager.Instance;
     }
 
     /// <summary>
@@ -47,10 +36,10 @@ public class CameraController : MonoBehaviour
         Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePosition);
         targetPos.z = 0f;
 
-        float distance = Vector3.Distance(targetPos, gameManager.player.transform.position);
+        float distance = Vector3.Distance(targetPos, GameManager.Instance.PlayerController.transform.position);
         if (distance > maxRadius)
         {
-            targetPos = gameManager.player.transform.position + (targetPos - gameManager.player.transform.position).normalized * maxRadius;
+            targetPos = GameManager.Instance.PlayerController.transform.position + (targetPos - GameManager.Instance.PlayerController.transform.position).normalized * maxRadius;
         }
 
         cameraPivot.position = targetPos;

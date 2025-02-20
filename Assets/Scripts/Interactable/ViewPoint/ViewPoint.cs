@@ -20,7 +20,7 @@ public class ViewPoint : InteractableBase
         }
         else { Debug.LogWarning("playableDirector is null!!"); }
 
-        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.Object_viewPoint);
+        dialogueData = DialogueManager.Instance.GetDialogue(EDialogueKey.Object_viewPoint);
 
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, PlayViewPointTimeline);
     }

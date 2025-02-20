@@ -12,7 +12,7 @@ public class Merchant : InteractableBase
         SetVirtualCameraActive(false);
         StartCoroutine(UnlockInputAfterDelay());
 
-        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.NPC_merchant);
+        dialogueData = DialogueManager.Instance.GetDialogue(EDialogueKey.NPC_merchant);
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => SetVirtualCameraActive(false));
     }
 

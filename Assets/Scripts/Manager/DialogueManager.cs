@@ -5,36 +5,48 @@ using TMPro;
 using UnityEngine;
 using KoreanTyper;
 using static DialogueDataSO;
+using UnityEngine.SceneManagement;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : BaseManager
 {
     public static DialogueManager Instance { get; private set; }
 
-    [SerializeField] private TMP_Text speakerText; // 화자 출력 텍스트
-    [SerializeField] private TMP_Text dialogueText; // 대사 출력 텍스트
-    [SerializeField] private GameObject dialoguePanel; // 대화 UI 패널
-    [SerializeField] private float typingSpeed = 0.04f; // 타이핑 속도
-
     public DialogueRepository repository;
-
     private Queue<DialogueLine> dialogueQueue; // 대사 저장
     private bool inputLock = false; // 키 입력을 막는 변수
     private bool isTyping = false; // 현재 타이핑 중인지 여부
     private Action onDialogueEnd; // 대화 종료 후 실행할 액션
     private DialogueLine currentDialogue; // 현재 출력 중인 대사
+    private float typingSpeed = 0.04f; // 타이핑 속도
 
-    private void Awake()
+    protected override void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             dialogueQueue = new Queue<DialogueLine>();
-            dialoguePanel.SetActive(false);
+            base.Awake();
+
+            FindRepository();
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+    protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindRepository();
+    }
+
+    protected override void FindRepository()
+    {
+        repository = FindObjectOfType<DialogueRepository>();
+    }
+
+    public List<DialogueLine> GetDialogue(EDialogueKey key)
+    {
+        return repository.GetDialogue(key);
     }
 
     /// <summary>
@@ -48,15 +60,10 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueQueue.Enqueue(dialogue);
         }
-
         onDialogueEnd = onEndAction;
-        dialoguePanel.SetActive(true); 
-        
-        if (virtualCamera != null)
-        {
-            virtualCamera.SetActive(true);
-        }
+        repository.dialoguePanel.SetActive(true);
 
+        virtualCamera?.SetActive(true);
         UIManager.Instance.FadeAnimation();
         UIManager.Instance.ActiveOrDisableLetterbox(true);
 
@@ -83,8 +90,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentDialogue = dialogueQueue.Dequeue();
-        speakerText.text = currentDialogue.speaker; 
-
+        repository.speakerText.text = currentDialogue.speaker; 
         StartCoroutine(TypingRoutine());
     }
 
@@ -99,7 +105,7 @@ public class DialogueManager : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= typingLength; i++)
         {
-            dialogueText.text = currentDialogue.message.Typing(i);
+            repository.dialogueText.text = currentDialogue.message.Typing(i);
             yield return new WaitForSeconds(typingSpeed);
         }
         isTyping = false;
@@ -107,13 +113,14 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (dialoguePanel.activeSelf && !inputLock && Input.anyKeyDown)
+        if (repository == null) return;
+        if (repository.dialoguePanel.activeSelf && !inputLock && Input.anyKeyDown)
         {
             if (isTyping)
             {
                 // 타이핑 스킵
                 StopAllCoroutines();
-                dialogueText.text = currentDialogue.message;
+                repository.dialogueText.text = currentDialogue.message;
                 isTyping = false;
             }
             else
@@ -128,11 +135,11 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void EndDialogue()
     {
-        dialoguePanel.SetActive(false);
+        repository.dialoguePanel.SetActive(false);
         UIManager.Instance.ActiveOrDisableLetterbox(false);
         UIManager.Instance.FadeAnimation();
-        dialogueText.text = "";
-        speakerText.text = "";
+        repository.dialogueText.text = "";
+        repository.speakerText.text = "";
         GameManager.Instance.PlayerController.SetMoveLock(false);
         onDialogueEnd?.Invoke(); // 대화 끝난 후 실행할 기능 호출
     }

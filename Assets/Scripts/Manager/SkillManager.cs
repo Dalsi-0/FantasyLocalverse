@@ -7,19 +7,20 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SkillManager : MonoBehaviour
+public class SkillManager : BaseManager
 {
     public static SkillManager Instance { get; private set; }
 
+    public SkillRepository skillRepository;
+    private SkillController skillController;
 
-    [SerializeField] private SkillRepository repository;
-    public SkillController skillController;
-
-    private void Awake()
+    protected override void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            skillController = GetComponent<SkillController>();
+            base.Awake();
         }
         else
         {
@@ -27,47 +28,71 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        FindRepository();
         SetSkillPreset();
     }
 
     /// <summary>
-    /// 현재 씬에 따라 스킬 프리셋을 설정하는 함수
+    /// 현재 씬에서 SkillRepository 찾기
     /// </summary>
+    protected override void FindRepository()
+    {
+        skillRepository = FindObjectOfType<SkillRepository>();
+    }
+
     private void SetSkillPreset()
     {
-        if (SceneManager.GetActiveScene().name == ESceneType.Village.ToString())
+        if (skillController == null) return;
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == ESceneType.Village.ToString())
         {
             AddSkill(Key.Space, "Dash");
             AddSkill(Key.R, "Ride");
         }
-        else if (SceneManager.GetActiveScene().name == ESceneType.MiniGameFind.ToString())
+        else if (sceneName == ESceneType.MiniGameFind.ToString())
         {
             AddSkill(Key.Space, "Dash");
             AddSkill(Key.R, "Scan");
         }
     }
 
-    public GameObject CreateSkillEffectPrefabs(GameObject obj, Transform parent )
+    public void UseSkill(Key key)
     {
-        return Instantiate(obj, parent);
+        if (skillController != null)
+        {
+            skillController.UseSkill(key);
+        }
     }
 
-    /// <summary>
-    /// 지정된 키에 스킬을 추가하는 함수
-    /// </summary>
-    public void AddSkill(Key key, string skillName)
+    private void AddSkill(Key key, string skillName)
     {
-        // UI 추가
-        GameObject obj = Instantiate(repository.GetSkillUIIcon(skillName), UIManager.Instance.hudUISkill);
-        Image cooldownImage = obj.transform.GetComponent<SkillIcon>().coolDownImage;
+        GameObject obj = Instantiate(skillRepository.GetSkillUIIcon(skillName), UIManager.Instance.hudUISkill);
+        Image cooldownImage = obj.GetComponent<SkillIcon>().coolDownImage;
 
-        // 스킬 생성 및 등록
-        SkillDataSO data = repository.GetSkillData(skillName);
-        SkillBase skill = repository.GetSkillBase(skillName, data, cooldownImage);
+        SkillDataSO data = skillRepository.GetSkillData(skillName);
+        SkillBase skill = skillRepository.GetSkillBase(skillName, data, cooldownImage);
 
-        // SkillController에 등록
         skillController.AssignSkill(key, skill);
+    }
+    
+    /// <summary>
+     /// 스킬 이펙트 프리팹 생성 함수
+     /// </summary>
+    public GameObject CreateSkillEffectPrefabs(GameObject effectPrefab, Transform parent)
+    {
+        if (effectPrefab == null)
+        {
+            return null;
+        }
+
+        return Instantiate(effectPrefab, parent);
+    }
+
+    public void ResetSkill()
+    {
+        skillController.ResetSkill();
     }
 }

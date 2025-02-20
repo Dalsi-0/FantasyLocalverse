@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviour
         {
             Key pressedKey = GetPressedKey();
 
-            SkillManager.Instance.skillController.UseSkill(pressedKey);
+            SkillManager.Instance.UseSkill(pressedKey);
         }
     }
     private Key GetPressedKey()

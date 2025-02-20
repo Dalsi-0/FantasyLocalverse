@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static DialogueDataSO;
 
@@ -19,6 +20,10 @@ public class DialogueRepository : MonoBehaviour
     [SerializeField] private List<DialogueDataSO> dialogueDataList;
 
     private Dictionary<EDialogueKey, List<DialogueLine>> dialogueDictionary = new Dictionary<EDialogueKey, List<DialogueLine>>();
+
+    public TMP_Text speakerText; // 화자 출력 텍스트
+    public TMP_Text dialogueText; // 대사 출력 텍스트
+    public GameObject dialoguePanel; // 대화 UI 패널
 
     private void Awake()
     {

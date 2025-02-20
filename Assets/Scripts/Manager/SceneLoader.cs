@@ -17,7 +17,6 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance { get; private set; }
 
-    [SerializeField] private GameObject[] managers;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Slider progressBar;
     [SerializeField] private TMP_Text tmiText;
@@ -58,6 +57,7 @@ public class SceneLoader : MonoBehaviour
             SavePlayerPosition();
         }
 
+        SkillManager.Instance.ResetSkill();
         StartCoroutine(LoadSceneAsync(sceneType));
     }
 
@@ -117,7 +117,7 @@ public class SceneLoader : MonoBehaviour
     /// </summary>
     private void SavePlayerPosition()
     {
-        originPlayerPosition = GameManager.Instance.player.transform.position;
+        originPlayerPosition = GameManager.Instance.PlayerController.transform.position;
     }
 
     /// <summary>
@@ -126,6 +126,6 @@ public class SceneLoader : MonoBehaviour
     private void RestorePlayerPosition()
     {
         Camera.main.transform.position = originPlayerPosition;
-        GameManager.Instance.player.transform.position = originPlayerPosition;
+        GameManager.Instance.PlayerController.transform.position = originPlayerPosition;
     }
 }

@@ -228,8 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc87de894494b8e4aa14ef0166fca4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repository: {fileID: 1284020067}
-  skillController: {fileID: 14319659}
 --- !u!4 &14319658
 Transform:
   m_ObjectHideFlags: 0
@@ -21406,11 +21404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdefa3044650644cbf4fdc5d71a7b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speakerText: {fileID: 110880706}
-  dialogueText: {fileID: 2039554016}
-  dialoguePanel: {fileID: 949631959}
-  typingSpeed: 0.05
-  repository: {fileID: 1512733097}
 --- !u!4 &996520064
 Transform:
   m_ObjectHideFlags: 0
@@ -29899,6 +29892,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c40ca27bf513c2847888e39b198110b9, type: 2}
   - {fileID: 11400000, guid: 0ac8d64ac4cb0254b9d1bf6bbbb71bb7, type: 2}
   - {fileID: 11400000, guid: 529f95bb80dc4ca41a4d03fbdd6600f5, type: 2}
+  speakerText: {fileID: 110880706}
+  dialogueText: {fileID: 2039554016}
+  dialoguePanel: {fileID: 949631959}
 --- !u!1 &1517446345
 GameObject:
   m_ObjectHideFlags: 0
@@ -36164,8 +36160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68edf29133858d2468aaf3a8539d23cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1039910917}
-  miniGameRepository: {fileID: 1729005810}
 --- !u!4 &1693305060
 Transform:
   m_ObjectHideFlags: 0
@@ -36574,7 +36568,7 @@ GameObject:
   - component: {fileID: 1729005811}
   - component: {fileID: 1729005810}
   m_Layer: 0
-  m_Name: MiniGameRepository
+  m_Name: GameRepository
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36592,6 +36586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0835bdd43ee414ca14d5140dd7b4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1039910917}
   miniGameDataList:
   - {fileID: 11400000, guid: b80f07b810f0f0c468629fcc2565e0c9, type: 2}
   - {fileID: 11400000, guid: 188daf24ce780a84db90c7e8165c4fab, type: 2}
@@ -37843,12 +37838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da237c6e2d56d30429485266dd9cf688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managers:
-  - {fileID: 1693305058}
-  - {fileID: 14319656}
-  - {fileID: 1573975464}
-  - {fileID: 996520062}
-  - {fileID: 1973864192}
   loadingScreen: {fileID: 1781332462}
   progressBar: {fileID: 1729498126}
   tmiText: {fileID: 545042460}

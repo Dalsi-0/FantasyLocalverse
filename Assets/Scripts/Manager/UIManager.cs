@@ -92,7 +92,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void UpdateMiniGameUI(ESceneType miniGameKey)
     {
-        MiniGameDataSO miniGames = GameManager.Instance.miniGameRepository.GetMiniGameInfo(miniGameKey);
+        MiniGameDataSO miniGames = GameManager.Instance.GetMiniGameInfo(miniGameKey);
 
         if (miniGames.gameName != "none")
         {

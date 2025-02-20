@@ -11,7 +11,7 @@ public class MiniGame_Brid : InteractableBase
     private void Start()
     {
         SetVirtualCameraActive(false);
-        dialogueData = DialogueManager.Instance.repository.GetDialogue(EDialogueKey.MiniGame_Brid);
+        dialogueData = DialogueManager.Instance.GetDialogue(EDialogueKey.MiniGame_Brid);
         onInteract = () => DialogueManager.Instance.StartDialogue(dialogueData, virtualCamera, () => ActiveMiniGameUI());
     }
 
