@@ -5,12 +5,11 @@ using UnityEngine.UIElements;
 
 public class BridController : MonoBehaviour
 {
-    [SerializeField] float jumpPower = 3f;
-    [SerializeField] float forwardPower = 2f;
-    Vector2 jumpDir = Vector2.zero;
-
-    Brid_GameManager brid_GameManager;
-    Rigidbody2D myRigidbody2D;
+    [SerializeField] private float jumpPower = 3f;
+    [SerializeField] private float forwardPower = 2f;
+    private Vector2 jumpDir = Vector2.zero;
+    private Brid_GameManager brid_GameManager;
+    private Rigidbody2D myRigidbody2D;
 
     private void Awake()
     {

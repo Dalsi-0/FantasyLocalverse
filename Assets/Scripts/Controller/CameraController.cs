@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         Look();
     }
 
-    void InitSetting()
+    private void InitSetting()
     {
         gameManager = GameManager.Instance;
     }
@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     /// <summary>
     /// 카메라 피벗을 기준으로하는 카메라 기본 움직임
     /// </summary>
-    void Look()
+    private void Look()
     {
         if (cameraPivot == null) return;
 
@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
     /// 카메라 피벗 위치 설정
     /// </summary>
     /// <param name="mousePosition">마우스 위치 값</param>
-    void ClampPivotToPlayer(Vector2 mousePosition)
+    private void ClampPivotToPlayer(Vector2 mousePosition)
     {
         Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePosition);
         targetPos.z = 0f;

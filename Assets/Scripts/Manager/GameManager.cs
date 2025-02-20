@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         InitSetting();
     }
 
-    void InitSetting()
+    private void InitSetting()
     {
         Cursor.lockState = CursorLockMode.Confined;
     }

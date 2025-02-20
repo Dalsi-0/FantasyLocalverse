@@ -11,7 +11,7 @@ public class Guard2 : InteractableBase
         ActiveCoroutine();
     }
 
-    void ActiveCoroutine()
+    private void ActiveCoroutine()
     {
         hitText.SetActive(true);
         StartCoroutine(UnlockInputAfterDelay());

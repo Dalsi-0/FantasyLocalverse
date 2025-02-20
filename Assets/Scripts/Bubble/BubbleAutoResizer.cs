@@ -56,7 +56,7 @@ public class BubbleAutoResizer : MonoBehaviour
     /// <summary>
     /// 텍스트 내용을 변경하고 말풍선 크기를 자동 조절하는 함수
     /// </summary>
-    void SetText(string message)
+    private void SetText(string message)
     {
         bubbleText.SetText(message);
         originText = bubbleText.text;

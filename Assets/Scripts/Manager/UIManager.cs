@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
         Init();
     }
 
-    void Init()
+    private void Init()
     {
         latterBoxAnimator.enabled = false;
         FadeAnimation();

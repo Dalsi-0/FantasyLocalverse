@@ -64,14 +64,14 @@ public class Brid_GameManager : MonoBehaviour
         }
     }
 
-    void EnterStageReady()
+    private void EnterStageReady()
     {
         bridController.SetRigidbodyGravityScale(0);
         obstaclesParent.SetActive(false);
         gameScore = 0;
     }
 
-    void EnterStagePlaying()
+    private void EnterStagePlaying()
     {
         bridController.SetRigidbodyGravityScale(0.5f);
         obstaclesParent.SetActive(true);
@@ -80,7 +80,7 @@ public class Brid_GameManager : MonoBehaviour
         brid_UIManager.SetActive_resultUI(false);
     }
 
-    void EnterStageGameOver()
+    private void EnterStageGameOver()
     {
         Time.timeScale = 0;
         brid_UIManager.SetActive_pressAnyKeyUI(false);
@@ -95,7 +95,7 @@ public class Brid_GameManager : MonoBehaviour
     /// <summary>
     /// 새로운 점수를 등록하고 리더보드를 업데이트하는 함수
     /// </summary>
-    int RegisterNewScore()
+    private int RegisterNewScore()
     {
         List<int> ranks = LeaderboardManager.Instance.GetScores(true);
 

@@ -25,7 +25,7 @@ public class TileMapColliderManager : MonoBehaviour
     /// <summary>
     /// 층별 콜라이더 활성화를 업데이트하는 함수
     /// </summary>
-    void UpdateFloorColliders()
+    private void UpdateFloorColliders()
     {
         for (int i = 0; i < floorColliders.Length; i++)
         {

@@ -111,7 +111,7 @@ public class MiniGameFindManager : MonoBehaviour
     /// <summary>
     /// 새로운 최고 점수를 등록하고 리더보드를 업데이트하는 함수
     /// </summary>
-    int RegisterNewScore()
+    private int RegisterNewScore()
     {
         List<int> ranks = LeaderboardManager.Instance.GetScores(false);
 

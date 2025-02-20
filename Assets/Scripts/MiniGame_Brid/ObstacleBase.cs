@@ -6,12 +6,12 @@ using UnityEngine.UIElements;
 public class ObstacleBase : MonoBehaviour
 {
     [SerializeField][Range(1f, 200f)] float speed = 3f;
-    [SerializeField] bool isGround;
-    [SerializeField] float widthPadding = 2.5f;
-    Vector3 lastPosition;
-    Brid_GameManager brid_GameManager;
-    Transform highObstacle;
-    Transform underObstacle;
+    [SerializeField] private bool isGround;
+    [SerializeField] private float widthPadding = 2.5f;
+    private Vector3 lastPosition;
+    private Brid_GameManager brid_GameManager;
+    private Transform highObstacle;
+    private Transform underObstacle;
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class ObstacleBase : MonoBehaviour
     /// <summary>
     /// 장애물 위치를 오른쪽 끝으로 재설정
     /// </summary>
-    void ResetPosition()
+    private void ResetPosition()
     {
         lastPosition = GetRightmostObstaclePosition(isGround);
         if(!isGround)
@@ -51,7 +51,7 @@ public class ObstacleBase : MonoBehaviour
     /// <summary>
     /// 가장 오른쪽에 위치한 장애물의 좌표를 반환
     /// </summary>
-    Vector3 GetRightmostObstaclePosition(bool isGround)
+    private Vector3 GetRightmostObstaclePosition(bool isGround)
     {
         Vector3 rightmostPosition = Vector3.zero;
         if (isGround)
@@ -86,7 +86,7 @@ public class ObstacleBase : MonoBehaviour
     /// <summary>
     /// 상하 장애물 간격을 무작위로 설정
     /// </summary>
-    void SetVerticalWidth()
+    private void SetVerticalWidth()
     {
         float minGap = 3f;
         float maxGap = 4f; 

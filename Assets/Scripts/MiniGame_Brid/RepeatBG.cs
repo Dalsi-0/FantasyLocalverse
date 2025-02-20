@@ -1,25 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 public class RepeatBG : MonoBehaviour
 {
     [SerializeField][Range(1f, 200f)] float speed = 3f;
 
-    [SerializeField] float posValue;
+    [SerializeField] private float posValue;
 
-    Vector2 startPos;
-    float newPos;
+    private Vector2 startPos;
+    private float newPos;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         startPos = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         newPos = Mathf.Repeat(Time.time * (speed * 0.01f), posValue);
         transform.position = startPos + Vector2.left * newPos;

@@ -7,14 +7,13 @@ using UnityEngine;
 
 public class Brid_UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject pressAnyKeyUI;
-    [SerializeField] GameObject playingUI;
-    [SerializeField] GameObject resultUI;
+    [SerializeField] private GameObject pressAnyKeyUI;
+    [SerializeField] private GameObject playingUI;
+    [SerializeField] private GameObject resultUI;
 
-    [SerializeField] TextMeshProUGUI playingGameScore;
-    [SerializeField] TextMeshProUGUI resultBestScore;
-    [SerializeField] TextMeshProUGUI resultGameScore;
-
+    [SerializeField] private TextMeshProUGUI playingGameScore;
+    [SerializeField] private TextMeshProUGUI resultBestScore;
+    [SerializeField] private TextMeshProUGUI resultGameScore;
 
     public void SetPlayingGameScoreText(int score)
     {
