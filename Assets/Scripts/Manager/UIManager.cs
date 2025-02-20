@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject miniGameUIPanel; // 미니게임 UI 패널
     [SerializeField] private MiniGameUI miniGameUI; // 미니게임 UI 구조체
+    [SerializeField] private GameObject changeClothesUIPanel; // 의상 변경 UI 패널
     [SerializeField] private Animator latterBoxAnimator;
     [SerializeField] private Animator FadeAnimator;
 
@@ -102,8 +103,12 @@ public class UIManager : MonoBehaviour
 
     public void CloseMiniGameUI()
     {
-        // 화면 잠금 및 움직임 잠금 등등 해제 
         miniGameUIPanel.SetActive(false);
+    }
+
+    public void SetActiveChangeClothesUI(bool value)
+    {
+        changeClothesUIPanel.SetActive(value);
     }
     #endregion
 
