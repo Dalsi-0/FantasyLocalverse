@@ -36,10 +36,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Transform normalTransform;
     [SerializeField] Transform rideTransform;
-    private Animator normalAnimator;
-    private ParticleSystem normalDashParticle;
-    private Animator rideAnimator;
-    private ParticleSystem rideDashParticle;
+    [SerializeField] ParticleSystem walkMoveParticle;
+    [SerializeField] ParticleSystem rideMoveParticle;
+    private Coroutine moveParticleCoroutine;
 
     private Rigidbody2D myRigidbody2D;
     private PlayerStat usingStat;
@@ -50,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false;
     private bool prevIsMoving = false; // 이전 이동 상태 저장
     private InteractableBase currentInteractable; // 현재 상호작용 가능한 오브젝트 저장
+    private float speedFactor;
 
     private void Start()
     {
@@ -60,16 +60,61 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         isMoving = myRigidbody2D.velocity.sqrMagnitude > 0.01f;
+
         if (isMoving != prevIsMoving)
         {
             usingStat.myAnimator.SetBool("1_Move", isMoving);
-            prevIsMoving = isMoving; // 이전 상태 업데이트
+
+            if (isMoving)
+            {
+                if (moveParticleCoroutine == null) // 이미 실행 중인지 확인
+                    moveParticleCoroutine = StartCoroutine(PlayMoveParticle());
+            }
+            else
+            {
+                if (moveParticleCoroutine != null)
+                {
+                    StopCoroutine(moveParticleCoroutine);
+                    moveParticleCoroutine = null;
+                }
+                walkMoveParticle.Stop();
+            }
+
+            prevIsMoving = isMoving;
         }
 
-        float speedFactor = Mathf.Clamp(myRigidbody2D.velocity.magnitude * 0.3f, 0.5f, 1.5f);
+        speedFactor = Mathf.Clamp(myRigidbody2D.velocity.magnitude * 0.3f, 0.5f, 1.5f);
         usingStat.myAnimator.speed = isMoving ? speedFactor : 1.0f;
 
         MoveMent();
+    }
+
+    private void InitSetting()
+    {
+        SetPlayerStat();
+
+        if (SceneManager.GetActiveScene().name != ESceneType.Village.ToString())
+        {
+            ShadowCaster2D shadowCaster2D = GetComponent<ShadowCaster2D>();
+            shadowCaster2D.enabled = false;
+        }
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private IEnumerator PlayMoveParticle()
+    {
+        while (isMoving)
+        {
+            if (playerState == EPlayerState.Normal)
+            {
+                walkMoveParticle.Play();
+            }
+            else
+            {
+                rideMoveParticle.Play();
+            }
+            yield return new WaitForSeconds(0.3f); 
+        }
     }
 
     public void ChangeSystemState(EPlayerState state)
@@ -101,17 +146,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void InitSetting()
-    {
-        SetPlayerStat();
-
-        if (SceneManager.GetActiveScene().name != ESceneType.Village.ToString())
-        {
-            ShadowCaster2D shadowCaster2D = GetComponent<ShadowCaster2D>();
-            shadowCaster2D.enabled = false;
-        }
-        myRigidbody2D = GetComponent<Rigidbody2D>();
-    }
 
     private void SetPlayerStat()
     {
