@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-# FantasyLocalverse
- 
-=======
+
 ﻿ <div align="center">
 
 ## 판타지 로컬버스 (Fantasy Localverse)
@@ -38,29 +35,32 @@ Unity로 제작한 간단한 게임입니다.
 ## 📸 화면 구성
 |마을|
 |:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Main.png?raw=true" width="700"/>|
-|마을에서 다양한 활동을 시작할 수 있습니다.|
+|<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/Village1.png?raw=true" width="700"/>|
+|<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/Village2.png?raw=true" width="700"/>|
+|마을을 자유롭게 탐험하며 다양한 장소를 방문하고, NPC와 상호작용할 수 있습니다.|
 
 <br /><br />
 
 |상호작용-대화|
 |:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Battle.png?raw=true" width="700"/>|
-|던전의 층마다 다른 종류의 몬스터들과의 전투가 벌어집니다.|  
+|<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/Dialogue1.png?raw=true" width="700"/>|
+|<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/Dialogue2.png?raw=true" width="700"/>|
+|NPC와 대화를 나누며 게임의 스토리를 진행하거나, 유용한 정보를 얻을 수 있습니다.|  
 
 <br /><br />
 
 |시네머신-타임라인|
 |:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Inventory.png?raw=true" width="700"/>|
-|인벤토리에서 획득한 장비를 확인하고 장착/해제할 수 있습니다.|
+|<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/Cine.png?raw=true" width="700"/>|
+|특정 상호작용 시 카메라 연출이 적용되어 마을을 한눈에 조망하거나, 중요한 장면을 강조할 수 있습니다.|
 
 <br /><br />
 
 |미니 게임|
 |:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Quest.png?raw=true" width="700"/>|
-|퀘스트를 수락하고 진행 상황을 확인할 수 있습니다.|
+|<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/MiniGame1.png?raw=true" width="700"/>|
+|<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/MiniGame2.png?raw=true" width="700"/>|
+|플래피 버드와 빛을 활용한 퍼즐형 미니 게임을 플레이할 수 있습니다.|
 
 <br />   
 
@@ -68,13 +68,110 @@ Unity로 제작한 간단한 게임입니다.
 
 ## 📂 프로젝트 폴더 구조
 ```
-??Dun9eonAndFi9ht
- ┣ ??Dun9eonAndFi9ht
- ┃ ┣ ??App
- ┃ ┃ ┗ ??Program.cs
- ┃ ┣ ??Characters
- ┃ ┃ ┣ ??Character.cs
- ┃ ┃ ┣ ??Monster.cs
+📦Assets
+┣ 📂01_Scenes
+┃ ┣ 📂PostProcessing
+┃ ┣ 📜MiniGameBrid.unity
+┃ ┣ 📜MiniGameFind.unity
+┃ ┣ 📜Village.unity
+┣ 📂02_Scripts
+┃ ┣ 📂Bubble
+┃ ┃ ┣ 📜BubbleAutoResizer.cs
+┃ ┣ 📂Controller
+┃ ┃ ┣ 📜CameraController.cs
+┃ ┃ ┣ 📜ClothesController.cs
+┃ ┃ ┣ 📜PlayerController.cs
+┃ ┃ ┣ 📜SkillController.cs
+┃ ┣ 📂Interactable
+┃ ┃ ┣ 📂MiniGameBrid
+┃ ┃ ┃ ┣ 📜BirdAnimator.cs
+┃ ┃ ┃ ┣ 📜MiniGame_Brid.cs
+┃ ┃ ┣ 📂MiniGameFind
+┃ ┃ ┃ ┣ 📜FakeItem.cs
+┃ ┃ ┃ ┣ 📜MiniGame_Find.cs
+┃ ┃ ┃ ┣ 📜RealItem.cs
+┃ ┃ ┣ 📂Monologue
+┃ ┃ ┃ ┣ 📜Church.cs
+┃ ┃ ┣ 📂ViewPoint
+┃ ┃ ┃ ┣ 📜ViewPoint.cs
+┃ ┃ ┣ 📜IInteractable.cs
+┃ ┃ ┣ 📜InteractableBase.cs
+┃ ┣ 📂Manager
+┃ ┃ ┣ 📜BaseManager.cs
+┃ ┃ ┣ 📜BubbleManager.cs
+┃ ┃ ┣ 📜DialogueManager.cs
+┃ ┃ ┣ 📜GameManager.cs
+┃ ┃ ┣ 📜LeaderboardManager.cs
+┃ ┃ ┣ 📜SceneLoader.cs
+┃ ┃ ┣ 📜SkillManager.cs
+┃ ┃ ┣ 📜TileMapColliderManager.cs
+┃ ┃ ┣ 📜UIManager.cs
+┃ ┣ 📂MiniGame_Brid
+┃ ┃ ┣ 📜Brid_GameManager.cs
+┃ ┃ ┣ 📜Brid_UIManager.cs
+┃ ┃ ┣ 📜BridController.cs
+┃ ┃ ┣ 📜ObstacleBase.cs
+┃ ┃ ┣ 📜RepeatBG.cs
+┃ ┣ 📂MiniGame_Find
+┃ ┃ ┣ 📜MiniGameFindManager.cs
+┃ ┣ 📂NPC
+┃ ┃ ┣ 📜Guard.cs
+┃ ┃ ┣ 📜Guard2.cs
+┃ ┃ ┣ 📜Merchant.cs
+┃ ┣ 📂Repository
+┃ ┃ ┣ 📜ClothesRepository.cs
+┃ ┃ ┣ 📜DialogueRepository.cs
+┃ ┃ ┣ 📜GameRepository.cs
+┃ ┣ 📂ScriptableObjects
+┃ ┃ ┣ 📂ClothesSO
+┃ ┃ ┣ 📂DialogueSO
+┃ ┃ ┣ 📂MiniGameSO
+┃ ┃ ┣ 📂SkillSO
+┃ ┃ ┣ 📜ClothesDataSO.cs
+┃ ┃ ┣ 📜DialogueDataSO.cs
+┃ ┃ ┣ 📜MiniGameDataSO.cs
+┃ ┃ ┣ 📜SkillDataSO.cs
+┃ ┣ 📂Skill
+┃ ┃ ┣ 📜Dash.cs
+┃ ┃ ┣ 📜Ride.cs
+┃ ┃ ┣ 📜Scan.cs
+┃ ┃ ┣ 📜SkillBase.cs
+┃ ┃ ┣ 📜SkillRepository.cs
+┃ ┣ 📜FloorSwitch.cs
+┃ ┣ 📜SkillIcon.cs
+┣ 📂03_Prefabs
+┃ ┣ 📂MiniGameFind
+┃ ┣ 📂NPC
+┃ ┣ 📂Particles
+┃ ┣ 📂Player
+┃ ┣ 📂Skill
+┣ 📂04_Anim
+┃ ┣ 📂Animation
+┃ ┣ 📂Animator
+┣ 📂05_Sprites
+┃ ┣ 📂Clothes
+┃ ┣ 📂MiniGame_Brid
+┃ ┃ ┣ 📂Background Sky
+┃ ┃ ┣ 📂Brid
+┃ ┃ ┃ ┣ 📂big block
+┃ ┃ ┃ ┣ 📂bird1
+┃ ┣ 📂MiniGame_Find
+┃ ┣ 📂SkillIcon
+┃ ┣ 📂TileMap
+┃ ┃ ┣ 📂Mocapot
+┃ ┃ ┃ ┣ 📂Fantasy Tileset
+┃ ┃ ┃ ┃ ┣ 📂Palettes
+┃ ┃ ┃ ┃ ┃ ┣ 📂Brushes
+┃ ┃ ┃ ┃ ┃ ┣ 📂Rule Tiles
+┃ ┃ ┃ ┃ ┣ 📂Sprites
+┃ ┣ 📂UI
+┃ ┃ ┣ 📂Clothes
+┃ ┃ ┣ 📂Dot_UI_01
+┃ ┃ ┃ ┣ 📂icon
+┃ ┃ ┃ ┃ ┣ 📂icon_white
+┃ ┃ ┣ 📂InputIcon
+┣ 📂Timeline
+┃ ┣ 📜ViewPoint.playable
 ```
 
 <br />  
@@ -113,4 +210,3 @@ Unity로 제작한 간단한 게임입니다.
 <br />  
 
 ---
->>>>>>> Stashed changes

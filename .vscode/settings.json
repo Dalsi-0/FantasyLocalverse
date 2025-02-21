@@ -1,0 +1,20 @@
+{
+    "file-tree-generator.ignorePatterns": [
+        "**/*.meta",
+        "**/*.png",
+        "**/*.asset",
+        "**/*.prefab",
+        "**/*.controller",
+        "**/*.anim",
+        "**/*.lighting",
+        "**/*.psd",
+        "**/*.txt",
+        "**/*.shader",
+        "Library",
+        "Logs",
+        "Temp",
+        "obj"
+    ],
+    "file-tree-generator.useGitignore": false,
+    "file-tree-generator.includeFileContent": false
+}
