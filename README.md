@@ -1,193 +1,116 @@
- <div align="center">
+<<<<<<< Updated upstream
+# FantasyLocalverse
+ 
+=======
+ï»¿ <div align="center">
 
-<!-- logo -->
-![image](https://github.com/user-attachments/assets/29264388-52d8-4423-8e07-dda41cc7569b)
+## íŒíƒ€ì§€ ë¡œì»¬ë²„ìŠ¤ (Fantasy Localverse)
 
-## ´øÀü ¾Ø ÆÄÀÌÆ®
+[<img src="https://img.shields.io/badge/Github-181717?style=flat&logo=Github&logoColor=white" />]()
+<br/> [<img src="https://img.shields.io/badge/í”„ë¡œì íŠ¸ ê¸°ê°„-2025.02.17~2025.02.20-73abf0?style=flat&logo=&logoColor=white" />]()
 
-[<img src="https://img.shields.io/badge/Github-181717?style=flat&logo=Github&logoColor=white" />]() [<img src="https://img.shields.io/badge/Notion-white?style=flat&logo=notion&logoColor=black" />]() [<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white" />]()
-<br/> [<img src="https://img.shields.io/badge/ÇÁ·ÎÁ§Æ® ±â°£-2025.02.06~2025.02.13-73abf0?style=flat&logo=&logoColor=white" />]()
-
+---
 </div> 
 
-## ?? ÇÁ·ÎÁ§Æ® ¼Ò°³
-C#À» »ç¿ëÇÏ¿© Á¦ÀÛÇÑ ÅØ½ºÆ® ±â¹Ý RPG ÄÜ¼Ö °ÔÀÓÀÔ´Ï´Ù.  
-ÇÃ·¹ÀÌ¾î´Â ´øÀüÀ» Å½ÇèÇÏ°í, ¸ó½ºÅÍ¿Í ÀüÅõ¸¦ ¹úÀÌ¸ç, ¾ÆÀÌÅÛÀ» È¹µæÇÏ°í ¼ºÀåÇÒ ¼ö ÀÖ½À´Ï´Ù.
-<br />
+## ðŸ“ í”„ë¡œì íŠ¸ ì†Œê°œ
 
-## ?? °ÔÀÓ ±â´É °³¿ä
-
-| ±â´É | ¼³¸í |
-|---|---|
-| ?? **¸¶À»** | Ã³À½ ½ÃÀÛÇÏ°Å³ª ÇÃ·¹ÀÌ¾î°¡ Á×À¸¸é »õ Ä³¸¯ÅÍ¸¦ »ý¼ºÇÕ´Ï´Ù. <br> - **ÀÌ¸§°ú Á÷¾÷**À» ÀÔ·Â¹Þ½À´Ï´Ù. <br> - **¸Þ´º ¼±ÅÃ**À¸·Î ´Ù¸¥ ±â´ÉÀ¸·Î ÀÌµ¿ÇÒ ¼ö ÀÖ½À´Ï´Ù. |
-| ?? **»óÅÂ º¸±â** | ÇöÀç Ä³¸¯ÅÍÀÇ <strong>Á¤º¸(·¹º§, Àåºñ, ´É·ÂÄ¡ µî)</strong>¸¦ Ç¥½ÃÇÕ´Ï´Ù. |
-| ? **ÀüÅõ ½ÃÀÛ** | Æ¯Á¤ ÃþÀÇ **´øÀü¿¡¼­ ÀüÅõ**¸¦ ½ÃÀÛÇÒ ¼ö ÀÖ½À´Ï´Ù. <br> - ÃþÀÌ ³ô¾ÆÁú¼ö·Ï **¸ó½ºÅÍ ·¹º§ Áõ°¡** ?? <br> - **¸ó½ºÅÍ¸¶´Ù º¸»ó**ÀÌ ´Ù¸§ ?? <br> - ÇÃ·¹ÀÌ¾î ÅÏ¿¡´Â **°ø°Ý, ½ºÅ³, Æ÷¼Ç »ç¿ë, µµ¸ÁÄ¡±â** Áß ¼±ÅÃ °¡´É |
-| ? **Ãþ ÀÌµ¿ÇÏ±â** | Å¬¸®¾î ±â·ÏÀÌ ÀÖ´Â ´øÀüÀ¸·Î **´Ù½Ã ÀÌµ¿ÇÏ¿© ÇÃ·¹ÀÌ °¡´É**ÇÕ´Ï´Ù. |
-| ?? **ÀÎº¥Åä¸®** | ´øÀü Å¬¸®¾î, Äù½ºÆ® ¼º°ø ½Ã **È¹µæÇÑ ¾ÆÀÌÅÛ°ú Æ÷¼Ç**À» È®ÀÎÇÕ´Ï´Ù. <br> - **¾ÆÀÌÅÛÀº ÀåÂø ºÎÀ§¸¶´Ù ÇÏ³ª¾¿ ÀåÂø °¡´É** ?? <br> - **¾ÆÀÌÅÛ °³¼ö°¡ ¸¹¾ÆÁö¸é ÆäÀÌÁö ³Ñ±è Áö¿ø** ?? |
-| ?? **Äù½ºÆ® ¼öÁÖ** | - ¾ÆÁ÷ ¹ÞÁö ¾ÊÀº **Äù½ºÆ®¸¦ È®ÀÎÇÏ°í ¼ö¶ô/°ÅÀý °¡´É** ? <br> - **ÁøÇà ÁßÀÎ Äù½ºÆ® & ¿Ï·áÇÑ Äù½ºÆ® ¸ñ·Ï**À» È®ÀÎ °¡´É ? |
-| ? **°ÔÀÓ Á¾·á** | **¸¶À»¿¡¼­ °ÔÀÓÀ» Á¾·á**ÇÒ ¼ö ÀÖ½À´Ï´Ù. |
+Unityë¡œ ì œìž‘í•œ ê°„ë‹¨í•œ ê²Œìž„ìž…ë‹ˆë‹¤.
+í”Œë ˆì´ì–´ëŠ” ë§ˆì„ì„ ëŒì•„ë‹¤ë‹ˆë©° NPCì™€ ìƒí˜¸ìž‘ìš©í•˜ê³ , ì¹´ë©”ë¼ ì—°ì¶œì„ ê²½í—˜í•˜ë©°, ë¯¸ë‹ˆ ê²Œìž„ì„ í”Œë ˆì´í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+ë¯¸ë‹ˆ ê²Œìž„ì€ ì´ ë‘ ê°€ì§€ë¡œ, í•˜ë‚˜ëŠ” ìœ ëª…í•œ í”Œëž˜í”¼ ë²„ë“œë¥¼ ìž¬í˜„í•œ ê²Œìž„ì´ë©°, ë‹¤ë¥¸ í•˜ë‚˜ëŠ” ë¹›ì„ í™œìš©í•˜ì—¬ ë§Žì€ ê°€ì§œ ë¬¼ê±´ ì¤‘ì— ì§„ì§œë¥¼ ì°¾ëŠ” ê°„ë‹¨í•œ ë¯¸ë‹ˆ ê²Œìž„ìž…ë‹ˆë‹¤.
 
 <br />  
 
 ---
 
-## ?? È­¸é ±¸¼º
-|¸¶À» ¾À|
-|:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Main.png?raw=true" width="450"/>|
-|¸¶À»¿¡¼­ ´Ù¾çÇÑ È°µ¿À» ½ÃÀÛÇÒ ¼ö ÀÖ½À´Ï´Ù.|
+## ðŸŽ® ê²Œìž„ ê¸°ëŠ¥ ê°œìš”
 
-|´øÀü ÀüÅõ ¾À|
-|:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Battle.png?raw=true" width="450"/>|
-|´øÀüÀÇ Ãþ¸¶´Ù ´Ù¸¥ Á¾·ùÀÇ ¸ó½ºÅÍµé°úÀÇ ÀüÅõ°¡ ¹ú¾îÁý´Ï´Ù.|  
+| ê¸°ëŠ¥ | ì„¤ëª… |
+|---|---|
+| ðŸ™ï¸ **ë§ˆì„ íƒí—˜** | í”Œë ˆì´ì–´ëŠ” ë§ˆì„ì„ ëŒì•„ë‹¤ë‹ˆë©° NPCì™€ ìƒí˜¸ìž‘ìš©í•˜ê³ , ë‹¤ì–‘í•œ ìž¥ì†Œë¥¼ ë°©ë¬¸í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. |
+| ðŸŽ¥ **ì¹´ë©”ë¼ ì—°ì¶œ** | íŠ¹ì • ìƒí˜¸ìž‘ìš©ì„ í†µí•´ ë§ˆì„ì„ í•œëˆˆì— ì‚´íŽ´ë³¼ ìˆ˜ ìžˆëŠ” ì¹´ë©”ë¼ ì—°ì¶œì„ ê²½í—˜í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. |
+| ðŸ‘— **ìºë¦­í„° ì˜ìƒ êµì²´** | ë‹¤ì–‘í•œ ì˜ìƒì„ ì„ íƒí•˜ì—¬ ìºë¦­í„°ì˜ ì™¸í˜•ì„ ë³€ê²½í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. |
+| ðŸŽ® **ë¯¸ë‹ˆ ê²Œìž„** | í”Œëž˜í”¼ ë²„ë“œì™€ ë¹›ì„ í™œìš©í•œ í¼ì¦í˜• ë¯¸ë‹ˆ ê²Œìž„ì„ í”Œë ˆì´í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. |
 
-|ÀÎº¥Åä¸® ¾À|
-|:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Inventory.png?raw=true" width="450"/>|
-|ÀÎº¥Åä¸®¿¡¼­ È¹µæÇÑ Àåºñ¸¦ È®ÀÎÇÏ°í ÀåÂø/ÇØÁ¦ÇÒ ¼ö ÀÖ½À´Ï´Ù.|
+<br />  
 
-|Äù½ºÆ® ¼öÁÖ ¾À|
+---
+
+## ðŸ“¸ í™”ë©´ êµ¬ì„±
+|ë§ˆì„|
 |:---:|
-|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Quest.png?raw=true" width="450"/>|
-|Äù½ºÆ®¸¦ ¼ö¶ôÇÏ°í ÁøÇà »óÈ²À» È®ÀÎÇÒ ¼ö ÀÖ½À´Ï´Ù.|
+|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Main.png?raw=true" width="700"/>|
+|ë§ˆì„ì—ì„œ ë‹¤ì–‘í•œ í™œë™ì„ ì‹œìž‘í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.|
+
+<br /><br />
+
+|ìƒí˜¸ìž‘ìš©-ëŒ€í™”|
+|:---:|
+|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Battle.png?raw=true" width="700"/>|
+|ë˜ì „ì˜ ì¸µë§ˆë‹¤ ë‹¤ë¥¸ ì¢…ë¥˜ì˜ ëª¬ìŠ¤í„°ë“¤ê³¼ì˜ ì „íˆ¬ê°€ ë²Œì–´ì§‘ë‹ˆë‹¤.|  
+
+<br /><br />
+
+|ì‹œë„¤ë¨¸ì‹ -íƒ€ìž„ë¼ì¸|
+|:---:|
+|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Inventory.png?raw=true" width="700"/>|
+|ì¸ë²¤í† ë¦¬ì—ì„œ íšë“í•œ ìž¥ë¹„ë¥¼ í™•ì¸í•˜ê³  ìž¥ì°©/í•´ì œí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.|
+
+<br /><br />
+
+|ë¯¸ë‹ˆ ê²Œìž„|
+|:---:|
+|<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Quest.png?raw=true" width="700"/>|
+|í€˜ìŠ¤íŠ¸ë¥¼ ìˆ˜ë½í•˜ê³  ì§„í–‰ ìƒí™©ì„ í™•ì¸í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.|
 
 <br />   
 
 ---
 
-## ?? ÇÁ·ÎÁ§Æ® Æú´õ ±¸Á¶
+## ðŸ“‚ í”„ë¡œì íŠ¸ í´ë” êµ¬ì¡°
 ```
 ??Dun9eonAndFi9ht
- ¦² ??Dun9eonAndFi9ht
- ¦­ ¦² ??App
- ¦­ ¦­ ¦± ??Program.cs
- ¦­ ¦² ??Characters
- ¦­ ¦­ ¦² ??Character.cs
- ¦­ ¦­ ¦² ??Monster.cs
- ¦­ ¦­ ¦± ??Player.cs
- ¦­ ¦² ??DataBase
- ¦­ ¦­ ¦² ??enemy_stage1.json
- ¦­ ¦­ ¦² ??enemy_stage2.json
- ¦­ ¦­ ¦² ??enemy_stage3.json
- ¦­ ¦­ ¦² ??enemy_stage4.json
- ¦­ ¦­ ¦² ??enemy_stage5.json
- ¦­ ¦­ ¦² ??item.json
- ¦­ ¦­ ¦² ??job.json
- ¦­ ¦­ ¦² ??monsterSkill.json
- ¦­ ¦­ ¦² ??player.json
- ¦­ ¦­ ¦² ??playerExpTable.json
- ¦­ ¦­ ¦² ??playerSkill.json
- ¦­ ¦­ ¦² ??potion.json
- ¦­ ¦­ ¦± ??questTable.json
- ¦­ ¦² ??Item
- ¦­ ¦­ ¦² ??Item.cs
- ¦­ ¦­ ¦± ??Potion.cs
- ¦­ ¦² ??Manager
- ¦­ ¦­ ¦² ??DataTableManager.cs
- ¦­ ¦­ ¦² ??GameManager.cs
- ¦­ ¦­ ¦² ??InventoryManager.cs
- ¦­ ¦­ ¦² ??QuestManager.cs
- ¦­ ¦­ ¦± ??SkillManager.cs
- ¦­ ¦² ??Quests
- ¦­ ¦­ ¦² ??EquipItemQuest.cs
- ¦­ ¦­ ¦² ??KillMonsterQuest.cs
- ¦­ ¦­ ¦² ??Quest.cs
- ¦­ ¦­ ¦± ??ReachLevelQuest.cs
- ¦­ ¦² ??Scenes
- ¦­ ¦­ ¦² ??Dungeon.cs
- ¦­ ¦­ ¦² ??InventoryScene.cs
- ¦­ ¦­ ¦² ??MoveStage.cs
- ¦­ ¦­ ¦² ??PlayerStat.cs
- ¦­ ¦­ ¦² ??QuestScene.cs
- ¦­ ¦­ ¦² ??Scene.cs
- ¦­ ¦­ ¦± ??StartScene.cs
- ¦­ ¦² ??Skill
- ¦­ ¦­ ¦² ??AlphaStrike.cs
- ¦­ ¦­ ¦² ??DoubleStrike.cs
- ¦­ ¦­ ¦² ??Fireball.cs
- ¦­ ¦­ ¦² ??IceSpear.cs
- ¦­ ¦­ ¦² ??MonsterSkill.cs
- ¦­ ¦­ ¦² ??SkillBase.cs
- ¦­ ¦­ ¦² ??SlashFrenzy.cs
- ¦­ ¦­ ¦± ??VitalStrike.cs
- ¦­ ¦² ??StaticClass
- ¦­ ¦­ ¦± ??Utility.cs
- ¦­ ¦² ??System
- ¦­ ¦­ ¦± ??BattleSystem.cs
- ¦­ ¦² ??DataDefinition.cs
- ¦­ ¦± ??Dun9eonAndFi9ht.csproj
+ â”£ ??Dun9eonAndFi9ht
+ â”ƒ â”£ ??App
+ â”ƒ â”ƒ â”— ??Program.cs
+ â”ƒ â”£ ??Characters
+ â”ƒ â”ƒ â”£ ??Character.cs
+ â”ƒ â”ƒ â”£ ??Monster.cs
 ```
+
+<br />  
 
 ---
 
+## ðŸ¤” ê¸°ìˆ ì  ì´ìŠˆì™€ í•´ê²° ê³¼ì • 
 
-## ?? ÇÁ·ÎÁ§Æ® °èÈ¹ ´Ü°è
+### ë¬¸ì œ : ë¦¬í¬ì§€í† ë¦¬ íŒ¨í„´ì„ í™œìš©í•œ ì”¬ ì „í™˜ ë° ë°ì´í„° ê´€ë¦¬ ê°œì„ 
+**ðŸ“ ì›ì¸ ë¶„ì„**  
+- ê° Managerì˜ ì—­í•  ê³¼ë‹¤: ë§¤ë‹ˆì € í´ëž˜ìŠ¤ê°€ ë°ì´í„° ê´€ë¦¬ê¹Œì§€ ë‹´ë‹¹í•˜ë©° ê³¼ë„í•œ ì±…ìž„ì´ ì§‘ì¤‘ë˜ì—ˆìŠµë‹ˆë‹¤.  
+- ë§¤ë‹ˆì € ê°„ ê²°í•©ë„ ë¬¸ì œ: ì—¬ëŸ¬ ë§¤ë‹ˆì € í´ëž˜ìŠ¤ê°€ ì„œë¡œ ì§ì ‘ ì°¸ì¡°í•˜ë©´ì„œ ê²°í•©ë„ê°€ ë†’ì•„ ìœ ì§€ë³´ìˆ˜ê°€ ì–´ë ¤ì› ìŠµë‹ˆë‹¤.  
+- ì”¬ ì „í™˜ ì‹œ ê°ì²´ ì°¸ì¡° ë¬¸ì œ: ì”¬ ì „í™˜ ì‹œ DontDestroyOnLoadë¡œ ìœ ì§€ë˜ëŠ” ê°ì²´ê°€ ìžˆëŠ” ë°˜ë©´, ì¼ë¶€ ê°ì²´ëŠ” ì‚­ì œë˜ë©´ì„œ NullReferenceException ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.  
+- Player ìƒíƒœ ìœ ì§€ ì–´ë ¤ì›€: Playerê°€ ê° ì”¬ë§ˆë‹¤ ê°œë³„ ë°°ì¹˜ë˜ì–´ ìƒíƒœ ìœ ì§€ê°€ ì–´ë µê³ , ë°ì´í„° ê³µìœ ê°€ ì›í™œí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.  
 
-### **?? ¾ÆÀÌµð¾î ±¸»ó**  
-Ã¹ È¸ÀÇ¸¦ ÅëÇØ °ÔÀÓÀÇ ÇÙ½É ±¸Á¶¸¦ ¼³°èÇÏ¿´À¸¸ç, ÁøÇà ¹æ½Ä°ú ¿ªÇÒÀ» ³íÀÇÇÏ¸ç ÇÁ·ÎÁ§Æ®ÀÇ ¹æÇâ¼ºÀ» ±¸Ã¼È­ÇÏ¿´½À´Ï´Ù.  
-<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Figma.png?raw=true" width="450"/>
-<br /><br />
-### **?? Çù¾÷ °úÁ¤**  
-¿øÈ°ÇÑ Çù¾÷À» À§ÇØ GitHubÀ» È°¿ëÇÏ¿© ÄÚµå Çü»ó °ü¸®¸¦ ÁøÇàÇÏ¿´À¸¸ç, NotionÀ» ÀÌ¿ëÇØ ¹®¼­¸¦ Á¤¸®ÇÏ°í ÀÏÁ¤ ¹× ¾÷¹« ÁøÇà »óÈ²À» °ü¸®ÇÏ¿´½À´Ï´Ù.  
-¶ÇÇÑ, Figma¸¦ »ç¿ëÇÏ¿© °ÔÀÓ ±¸Á¶¸¦ ½Ã°¢ÀûÀ¸·Î Á¤¸®ÇÏ°í ÆÀ¿øµé°ú °øÀ¯ÇÏ¿´½À´Ï´Ù.  
-<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Notion.png?raw=true" width="450"/>
-<br /><br />
-### **?? °³¹ß °úÁ¤**  
-°³¹ß °úÁ¤¿¡¼­ ÆÀ¿øµéÀº Á¤±âÀûÀÎ È­»ó È¸ÀÇ¸¦ ÅëÇØ ÁøÇà »óÈ²À» °øÀ¯ÇÏ°í, ¹ß»ýÇÑ ¹®Á¦¸¦ ÇÔ²² ÇØ°áÇÏ¿´½À´Ï´Ù.  
-ÄÚµå ¸®ºä¸¦ ÅëÇØ °¢ÀÚÀÇ ±¸Çö ¹æ½ÄÀ» ÀÌÇØÇÏ¿© ±â´ÉÀ» º´ÇÕÇÏ´Â °úÁ¤À» ¿øÈ°ÇÏ°Ô ÁøÇàÇÒ ¼ö ÀÖ¾ú½À´Ï´Ù.  
-¶ÇÇÑ, ÇÊ¿ä¿¡ µû¶ó Ãß°¡ÀûÀÎ ±â´É °³¼± »çÇ×À» ³íÀÇÇÏ°í Àû¿ëÇÏ¿´½À´Ï´Ù.  
-<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/Meeting.png?raw=true" width="450"/>
-<br /><br />
-### **?? Å×½ºÆ® ¹× ¼öÁ¤**  
-°³¹ß ¿Ï·á ÈÄ, ¿©·¯ Â÷·Ê Å×½ºÆ®¸¦ ÁøÇàÇÏ¸ç ¹ß°ßµÈ ¹ö±×¸¦ ¼öÁ¤ÇÏ°í °ÔÀÓÀÇ ¿Ï¼ºµµ¸¦ ³ô¿´½À´Ï´Ù.  
-Æ¯È÷, ½Ã½ºÅÛÀûÀ¸·Î ¹ß»ýÇÏ´Â ¹®Á¦´Â ÆÀ¿øµé°ú Çù·ÂÇÏ¿© °³¼± ¹æ¾ÈÀ» ¸¶·ÃÇÏ°í Àû¿ëÇÏ¿´½À´Ï´Ù.  
-<img src="https://github.com/yndoo/Dun9eonAndFi9ht/blob/main/ReadmeImage/BugList.png?raw=true" width="450"/>  
-<br /><br />
-### **?? ÇÁ·ÎÁ§Æ® ¿Ï·á**  
-¸ðµç ±â´ÉÀÌ Á¤»óÀûÀ¸·Î ÀÛµ¿ÇÏ´Â °ÍÀ» È®ÀÎÇÑ ÈÄ, ÇÁ·ÎÁ§Æ®¸¦ ¼º°øÀûÀ¸·Î ¸¶¹«¸®ÇÏ¿´½À´Ï´Ù.  
-ÃÖÁ¾ÀûÀ¸·Î °³¹ßµÈ °ÔÀÓÀ» Á¤¸®ÇÏ¸ç ÆÀ¿øµé°úÀÇ Çù¾÷À» µÇµ¹¾Æº¸°í ÀÌ¹ø ÇÁ·ÎÁ§Æ®¸¦ ÅëÇØ ¾òÀº °æÇèÀ» °øÀ¯ÇÏ¿´½À´Ï´Ù.  
+**ðŸ’¡ í•´ê²° ë°©ë²•**  
+âœ” ì±…ìž„ ë¶„ë¦¬: Managerê°€ ì§ì ‘ ë°ì´í„° ê´€ë¦¬ë¥¼ ë‹´ë‹¹í•˜ì§€ ì•Šë„ë¡ ë¦¬í¬ì§€í† ë¦¬ íŒ¨í„´ì„ ì ìš©í•˜ì—¬, ë°ì´í„°ëŠ” ê°ê°ì˜ Repositoryì—ì„œ ê´€ë¦¬í•˜ë„ë¡ ë³€ê²½í–ˆìŠµë‹ˆë‹¤.  
+âœ” ë§¤ë‹ˆì € ê°„ ê²°í•©ë„ ê°ì†Œ: ê° ë§¤ë‹ˆì €ê°€ ì§ì ‘ ì°¸ì¡°í•˜ë˜ ê°ì²´ë¥¼ ë¦¬í¬ì§€í† ë¦¬ë¥¼ í†µí•´ ì ‘ê·¼í•˜ë„ë¡ ìˆ˜ì •í•˜ì—¬ í´ëž˜ìŠ¤ ê°„ ì˜ì¡´ì„±ì„ ë‚®ì¶”ê³  ìœ ì§€ë³´ìˆ˜ë¥¼ ìš©ì´í•˜ê²Œ í–ˆìŠµë‹ˆë‹¤.  
+âœ” ê°ì²´ ì°¸ì¡° ë¬¸ì œ í•´ê²°: ë¦¬í¬ì§€í† ë¦¬ íŒ¨í„´ì„ ì ìš©í•˜ì—¬ DontDestroyOnLoadë¥¼ ì ìš©í•  ê°ì²´ì™€ ì”¬ ì „í™˜ ì‹œ ìž¬ìƒì„±í•  ê°ì²´ë¥¼ ë¶„ë¦¬í•˜ì—¬ NullReferenceExceptionì´ ë°œìƒí•˜ì§€ ì•Šë„ë¡ ê°œì„ í–ˆìŠµë‹ˆë‹¤.  
+âœ” Player ìƒíƒœ ìœ ì§€ ê°œì„ : Playerë¥¼ ì”¬ì— ì§ì ‘ ë°°ì¹˜í•˜ëŠ” ëŒ€ì‹  GameRepositoryì—ì„œ í”„ë¦¬íŒ¹ê³¼ ìœ„ì¹˜ ì •ë³´ë¥¼ ë¶ˆëŸ¬ì™€ ë™ì ìœ¼ë¡œ ìƒì„±í•˜ë„ë¡ ë³€ê²½í•˜ì—¬ ì”¬ ì „í™˜ í›„ì—ë„ ì¼ê´€ëœ ìƒíƒœë¥¼ ìœ ì§€í•  ìˆ˜ ìžˆë„ë¡ í–ˆìŠµë‹ˆë‹¤.  
 
-<br /><br />
-### ?? Çù¾÷ Åø
-<div>
-<img src="https://github.com/yewon-Noh/readme-template/blob/main/skills/Github.png?raw=true" width="80">
-<img src="https://github.com/yewon-Noh/readme-template/blob/main/skills/Notion.png?raw=true" width="80">
-<img src="https://github.com/yewon-Noh/readme-template/blob/main/skills/Figma.png?raw=true" width="80">
-</div>
+**ðŸŽ¯ ê²°ê³¼ ë° ê°œì„  íš¨ê³¼**  
+âœ… ì±…ìž„ ë¶„ë¦¬: Manager í´ëž˜ìŠ¤ì˜ ì—­í• ì„ ìµœì†Œí™”í•˜ê³ , ë°ì´í„° ê´€ë¦¬ë¥¼ ë¦¬í¬ì§€í† ë¦¬ì—ì„œ ë‹´ë‹¹í•˜ë„ë¡ ë³€ê²½í•˜ì—¬ ìœ ì§€ë³´ìˆ˜ì„±ì„ í–¥ìƒì‹œì¼°ìŠµë‹ˆë‹¤.  
+âœ… í™•ìž¥ì„± ì¦ê°€: ìƒˆë¡œìš´ ë°ì´í„°ë¥¼ ì¶”ê°€í•˜ê±°ë‚˜ ë³€ê²½í•  ë•Œ ê¸°ì¡´ ì½”ë“œë¥¼ ìˆ˜ì •í•  í•„ìš” ì—†ì´ ë¦¬í¬ì§€í† ë¦¬ë§Œ ìˆ˜ì •í•˜ë©´ ë˜ë„ë¡ êµ¬ì¡°ë¥¼ ê°œì„ í–ˆìŠµë‹ˆë‹¤.  
+âœ… ë²„ê·¸ ê°ì†Œ: ì”¬ ë³€ê²½ ì‹œ ê°ì²´ ì°¸ì¡° ë°©ì‹ì´ ëª…í™•í•´ì ¸ NullReferenceException ë°œìƒ ê°€ëŠ¥ì„±ì´ ì¤„ì–´ë“¤ì—ˆìœ¼ë©° ì•ˆì •ì ì¸ ë°ì´í„° ê´€ë¦¬ê°€ ê°€ëŠ¥í•´ì¡ŒìŠµë‹ˆë‹¤.  
 
-- GitHub: ÄÚµå ¹öÀü °ü¸® ¹× Çù¾÷
-- Notion: ÇÁ·ÎÁ§Æ® ¹®¼­ Á¤¸® ¹× ÀÏÁ¤ °ü¸®
-- Figma: UI/UX µðÀÚÀÎ ¹× ÇÁ·ÎÅäÅ¸ÀÌÇÎ
-
-<br />
+<br />  
 
 ---
 
-## ?? ±â¼úÀû ÀÌ½´¿Í ÇØ°á °úÁ¤ 
+## ðŸ•¹ï¸ í”Œë ˆì´ ë§í¬  
+**ðŸ‘‰ [ë˜ì „ ì•¤ íŒŒì´íŠ¸ í”Œë ˆì´í•˜ê¸°](https://play.unity.com/en/games/9a6104fa-1051-4c4a-970a-875c5ab6e126/fantasylocalverse)**
 
-### ¹®Á¦ 1: È£Ãâ ½ºÅÃÀÌ ½×ÀÌ´Â ¹®Á¦  
-**?? ¿øÀÎ ºÐ¼®**  
-- ÇÔ
+ì›¹ ë¸Œë¼ìš°ì €ì—ì„œ ë°”ë¡œ í”Œë ˆì´í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤! ðŸŽ®   
 
-**?? ÇØ°á ¹æ¹ý**  
-? µ¨
-```
-ESc
-}
-```
-
-  <br /><br />
-
-### ¹®Á¦ 2: D
-**?? ¿øÀÎ ºÐ¼®**  
-- ±â
-
-**?? ÇØ°á ¹æ¹ý**  
-? µ¥
-```
-i
-```
-<br />
+<br />  
 
 ---
+>>>>>>> Stashed changes
