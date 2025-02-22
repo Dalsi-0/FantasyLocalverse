@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
 
     public Transform hudUISkill;
 
+    [SerializeField] private Canvas mainCanvas;
     [SerializeField] private RectTransform dialoguePanel;
     [SerializeField] private GameObject miniGameUIPanel; // 미니게임 UI 패널
     [SerializeField] private MiniGameUI miniGameUI; // 미니게임 UI 구조체
@@ -61,16 +62,19 @@ public class UIManager : MonoBehaviour
 
     private void Init()
     {
-        float screenWidth = Screen.width; // 현재 화면 가로 길이
+        // 현재 Canvas 크기 가져오기
+        RectTransform canvasRect = mainCanvas.GetComponent<RectTransform>();
+        float canvasWidth = canvasRect.rect.width;
 
-        dialoguePanel.sizeDelta = new Vector2(screenWidth, dialoguePanel.sizeDelta.y);
+
+        dialoguePanel.sizeDelta = new Vector2(canvasWidth, dialoguePanel.sizeDelta.y);
         for (int i = 0; i < 2; i++)
         {
             RectTransform rectLatterBox = latterBoxAnimator.transform.GetChild(i).GetComponent<RectTransform>();
-            rectLatterBox.sizeDelta = new Vector2(screenWidth, rectLatterBox.sizeDelta.y);
+            rectLatterBox.sizeDelta = new Vector2(canvasWidth, rectLatterBox.sizeDelta.y);
         }
         RectTransform rectFade = FadeAnimator.transform.GetComponent<RectTransform>();
-        rectFade.sizeDelta = new Vector2(screenWidth, rectFade.sizeDelta.y);
+        rectFade.sizeDelta = new Vector2(canvasWidth, rectFade.sizeDelta.y);
 
 
         latterBoxAnimator.enabled = false;
