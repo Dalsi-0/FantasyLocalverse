@@ -45,7 +45,7 @@ Unity로 제작한 간단한 게임입니다.
 |:---:|
 |<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/Dialogue1.png?raw=true" width="700"/>|
 |<img src="https://github.com/Dalsi-0/FantasyLocalverse/blob/main/ReadmeImage/Dialogue2.png?raw=true" width="700"/>|
-|NPC와 대화를 나누며 게임의 스토리를 진행하거나, 유용한 정보를 얻을 수 있습니다.|  
+|NPC와 상호작용하여 대화를 나눌수 있습니다.|  
 
 <br /><br />
 
